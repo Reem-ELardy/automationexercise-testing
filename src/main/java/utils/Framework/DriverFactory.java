@@ -1,4 +1,4 @@
-package utils;
+package utils.Framework;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
@@ -60,5 +60,9 @@ public class DriverFactory {
 
     static public WebDriver getDriver() {
         return driver;
+    }
+
+    static public void quitDriver() {
+        driver.quit();
     }
 }

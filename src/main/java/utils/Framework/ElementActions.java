@@ -1,4 +1,4 @@
-package utils;
+package utils.Framework;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -94,4 +94,6 @@ public class ElementActions {
     public static boolean isELementDisplayed(By elementLocator){
         return getElement(elementLocator).isDisplayed();
     }
+
+
 }

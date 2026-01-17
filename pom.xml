@@ -90,9 +90,9 @@
                             </property>
                             <property>
                                 <name>listener</name>
-                                <value>utils.AllureReportChangesListener</value>
+                                <value>utils.Framework.AllureReportChangesListener</value>
                                 <name>Listener</name>
-                                <value>utils.TestNgListener.class</value>
+                                <value>utils.Framework.TestNgListener.class</value>
                             </property>
                         </properties>
                     </configuration>

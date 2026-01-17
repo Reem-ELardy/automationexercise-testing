@@ -1,4 +1,4 @@
-package utils;
+package utils.Framework;
 
 import io.qameta.allure.Feature;
 import org.testng.IAlterSuiteListener;
