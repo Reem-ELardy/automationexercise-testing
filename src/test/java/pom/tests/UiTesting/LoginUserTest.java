@@ -27,7 +27,7 @@ public class LoginUserTest extends BaseTestClass{
                 .assertLoginFormTitle(loginTestDataManager.getData("AssertionData.LoginFormTitle"))
                 .login(loginTestDataManager.getData("UserData.validUserData.email"), loginTestDataManager.getData("UserData.validUserData.password"));
         new Dashboard()
-                .assertOnLoggedInAs(loginTestDataManager.getData("AssertionData.LoggedInAs"))
+                .assertOnLoggedInAs(loginTestDataManager.getData("UserData.validUserData.username"))
                 .clickLogOutButton();
     }
 
@@ -58,7 +58,7 @@ public class LoginUserTest extends BaseTestClass{
         loginTestDataManager = new JsonFileReader("UITestingData/loginTestData.json");
     }
 
-    @AfterClass(description = "Delete the created test account and close the browser after the test suite")
+    @AfterClass(description = "Close the browser after the tests")
     public void tearDown() {
         DriverFactory.quitDriver();
     }

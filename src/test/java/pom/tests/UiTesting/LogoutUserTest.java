@@ -1,6 +1,6 @@
 package pom.tests.UiTesting;
 
-import io.qameta.allure.TmsLink;
+import io.qameta.allure.*;
 import org.testng.annotations.*;
 import pom.pages.Dashboard;
 import pom.pages.HomePage;
@@ -10,10 +10,14 @@ import utils.Framework.JsonFileReader;
 import utils.Framework.TestNgListener;
 
 @Listeners({TestNgListener.class})
+@Feature("User Logout")
 public class LogoutUserTest extends BaseTestClass{
     JsonFileReader testDataManager;
 
-    @Test
+    @Test(description = "Verify that a registered user can log out successfully")
+    @Description("Logs in with a registered user, verifies login, performs logout, and verifies that the login page is displayed again")
+    @Severity(SeverityLevel.NORMAL)
+    @Story("User Logout Functionality")
     @TmsLink("AT-15")
     public void TC4_LogoutUserTest() {
         new Dashboard()
@@ -31,7 +35,7 @@ public class LogoutUserTest extends BaseTestClass{
                 .assertLoginFormTitle(testDataManager.getData("AssertionData.LoginFormTitle"));
     }
 
-    @BeforeClass(description = "SetUp browser, json file reader and register a new test user and Navigate to home page before each test method")
+    @BeforeClass(description = "SetUp browser, json file reader and Navigate to home page before each test method")
     public void setUp() {
         DriverFactory.initiateDriver();
         testDataManager = new JsonFileReader("UITestingData/logOutTestData.json");

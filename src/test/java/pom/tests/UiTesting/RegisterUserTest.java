@@ -18,6 +18,7 @@ public class RegisterUserTest extends BaseTestClass{
     @Test(description = "Register a new User")
     @Description("End-to-end sign up process for a new user")
     @Severity(SeverityLevel.CRITICAL)
+    @Story("User Registration Validation")
     @TmsLink("AT-12")
     public void TC1_testRegisterUser() {
         new HomePage()
@@ -40,7 +41,10 @@ public class RegisterUserTest extends BaseTestClass{
                 .assertOnLoggedInAs(testDataManager.getData("userTestData.username"));
     }
 
-    @Test
+    @Test(description = "Verify that attempting to register with an existing user shows an error")
+    @Description("Navigate to the signup page, attempt to register using a username and email that already exist, and verify that the appropriate error message is displayed")
+    @Severity(SeverityLevel.NORMAL)
+    @Story("User Registration Validation")
     @TmsLink("AT-16")
     public void TC5_RegisterExistingUser() {
         new HomePage()
@@ -53,19 +57,18 @@ public class RegisterUserTest extends BaseTestClass{
                 .assertOnSignUpError(testDataManager.getData("AssertionData.SignUpFormError"));
     }
 
-    @BeforeMethod
+    @BeforeMethod(description = "Navigate to Home page before each test case")
     public void beforeMethod() {
         new HomePage()
                 .navigateToHomePage();
     }
 
-    @AfterMethod
+    @AfterMethod(description = "Delete User account if the user is logged In")
     public void afterMethod() {
         if(!new SignUpLoginPage().isUserInSignUpLoginPage()){
             UserFunctions.deleteUserAccount();
         }
     }
-
 
     @BeforeClass(description = "SetUp browser, json file reader")
     public void setUp() {

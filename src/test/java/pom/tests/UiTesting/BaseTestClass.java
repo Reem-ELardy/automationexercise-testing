@@ -10,7 +10,7 @@ import utils.HelperFunctions.UserFunctions;
 public class BaseTestClass {
     JsonFileReader testDataManager;
 
-    @BeforeSuite
+    @BeforeSuite(description = "Register a test user once for all Account Management tests")
     public void registerUserOnce() {
         DriverFactory.initiateDriver();
         testDataManager = new JsonFileReader("UITestingData/userRegisterForAccountMangement.json");
@@ -19,12 +19,4 @@ public class BaseTestClass {
         UserFunctions.SignUpAndLogout(testDataManager, "userTestDataNew");
         DriverFactory.quitDriver();
     }
-
-//    @AfterSuite
-//    public void teardown() {
-//        new HomePage()
-//                .navigateToHomePage();
-//
-//
-//    }
 }
