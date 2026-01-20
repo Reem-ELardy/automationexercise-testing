@@ -78,6 +78,9 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
                     <configuration>
+                        <suiteXmlFiles>
+                            <suiteXmlFile>ْXMLFiles/UserManagement.xml</suiteXmlFile>
+                        </suiteXmlFiles>
                         <systemPropertyVariables>
                             <allure.results.directory>target/allure-results</allure.results.directory>
                             <allure.suite.name>${project.artifactId}</allure.suite.name>

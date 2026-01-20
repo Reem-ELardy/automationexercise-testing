@@ -1,0 +1,21 @@
+{
+  "userTestDataNew": {
+    "username": "Lina",
+    "email": "lina@example.com",
+    "title": "Ms",
+    "password": "Lina@1234",
+    "day": "25",
+    "month": "12",
+    "year": "1995",
+    "firstName": "Lina",
+    "lastName": "Khan",
+    "company": "LinaCorp",
+    "mobileNumber": "+91 9123456780",
+    "address": "456 Park Street",
+    "address2": "Suite 101",
+    "country": "India",
+    "state": "Karnataka",
+    "city": "Bangalore",
+    "zipCode": "560001"
+  }
+}
