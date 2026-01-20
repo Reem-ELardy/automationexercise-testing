@@ -1,0 +1,11 @@
+{
+  "userTestData": {
+    "username": "Lina",
+    "email": "lina@example.com",
+    "password": "Lina@1234"
+  },
+  "AssertionData": {
+    "AccountDeletedPageTitle": "ACCOUNT DELETED!",
+    "LoginWarning": "Your email or password is incorrect!"
+  }
+}
