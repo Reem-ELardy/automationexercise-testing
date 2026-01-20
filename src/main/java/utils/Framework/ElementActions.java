@@ -95,5 +95,14 @@ public class ElementActions {
         return getElement(elementLocator).isDisplayed();
     }
 
+    public static boolean isElementPresent(By locator) {
+        try {
+            return DriverFactory.getDriver().findElements(locator).size() > 0;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+
 
 }
