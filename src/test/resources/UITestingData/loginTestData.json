@@ -1,10 +1,12 @@
 {
   "UserData": {
     "validUserData": {
+      "username": "Lina",
       "email": "lina@example.com",
       "password": "Lina@1234"
     },
     "invalidUserData": {
+      "username": "Lin0",
       "email": "lino@example.com",
       "password": "Lino@1234"
     }

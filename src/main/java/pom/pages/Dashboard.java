@@ -22,16 +22,19 @@ public class Dashboard {
     //Actions
     @Step("Click On Signup Login")
     public void clickSignupLoginButton() {
+        AdvertismentPages.closeAdsIfAny();
         ElementActions.Click(signupLoginButton);
     }
 
     @Step("Click On Delete Account")
     public void clickDeleteAccountButton() {
+        AdvertismentPages.closeAdsIfAny();
         ElementActions.Click(deleteAccountButton);
     }
 
     @Step("Click On Logout")
     public Dashboard clickLogOutButton() {
+        AdvertismentPages.closeAdsIfAny();
         ElementActions.Click(logOutButton);
         return this;
     }
@@ -39,12 +42,8 @@ public class Dashboard {
     //Validation
     @Step("Assert On Logged In As Username")
     public Dashboard assertOnLoggedInAs(String username) {
+        AdvertismentPages.closeAdsIfAny();
         Assert.assertEquals(ElementActions.getText(loggedInAsText), "Logged in as " + username);
         return this;
-    }
-
-    @Step
-    public void verifyAUserIsLoggedIn() {
-        ElementActions.isELementDisplayed(loggedInAsText);
     }
 }

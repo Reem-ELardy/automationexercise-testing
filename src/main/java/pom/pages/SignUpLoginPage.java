@@ -11,9 +11,6 @@ import java.sql.SQLOutput;
 
 public class SignUpLoginPage {
     //Variables
-    private WebDriver driver;
-    String expectedUrl = "https://automationexercise.com/login";
-
 
     //Locators
     private By loginEmailField = By.xpath("//input[@data-qa= 'login-email']");
@@ -29,18 +26,11 @@ public class SignUpLoginPage {
 
 
     //Constructor
-    public SignUpLoginPage() {
-        this.driver = DriverFactory.getDriver();
-    }
 
-    public boolean isUserInSignUpLoginPage() {
-        String actualUrl = this.driver.getCurrentUrl();
-        System.out.println("Actual URL: " + actualUrl);
-        return actualUrl.contains("/login");
-    }
     //Actions
     @Step("Login User Steps")
     public SignUpLoginPage login(String loginEmail, String loginPassword) {
+        AdvertismentPages.closeAdsIfAny();
         ElementActions.Type(loginEmailField, loginEmail);
         ElementActions.Type(loginPasswordField, loginPassword);
         ElementActions.Click(loginButton);
@@ -49,6 +39,7 @@ public class SignUpLoginPage {
 
     @Step("Sign Up User Steps")
     public SignUpLoginPage SignUp(String username, String signUpEmail) {
+        AdvertismentPages.closeAdsIfAny();
         ElementActions.Type(usernameSignUpField, username);
         ElementActions.Type(signUpEmailField, signUpEmail);
         ElementActions.Click(signUpButton);
@@ -56,25 +47,36 @@ public class SignUpLoginPage {
     }
 
     //Validation
+    @Step("Assert that user is in SignUp/Login Page")
+    public boolean isUserInSignUpLoginPage() {
+        String actualUrl = DriverFactory.getDriver().getCurrentUrl();
+        System.out.println("Actual URL: " + actualUrl);
+        return actualUrl.contains("/login") || actualUrl.contains("/signup");
+    }
+
     @Step("Assert On Login Form Title")
     public SignUpLoginPage assertLoginFormTitle(String title) {
+        AdvertismentPages.closeAdsIfAny();
         Assert.assertEquals(ElementActions.getText(LoginFormTitle), title);
         return this;
     }
 
     @Step("Assert on Login Warning")
     public void assertOnInvalidLoginWarning(String warningText) {
+        AdvertismentPages.closeAdsIfAny();
         Assert.assertEquals(ElementActions.getText(loginWarningText), warningText);
     }
 
     @Step("Assert On SignUp Form Title")
     public SignUpLoginPage assertSignupFormTitle(String title) {
-        Assert.assertEquals(driver.findElement(SignUpFormTitle).getText(), title);
+        AdvertismentPages.closeAdsIfAny();
+        Assert.assertEquals(ElementActions.getText(SignUpFormTitle), title);
         return this;
     }
 
     @Step("Assert on SignUp Error")
     public void assertOnSignUpError(String warningText) {
+        AdvertismentPages.closeAdsIfAny();
         Assert.assertEquals(ElementActions.getText(signUpErrorMessage), warningText);
     }
 }

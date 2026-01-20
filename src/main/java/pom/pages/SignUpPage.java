@@ -10,7 +10,6 @@ import utils.Framework.ElementActions;
 
 public class SignUpPage {
     //Variables
-    private WebDriver driver;
 
     //Locators
     private By enterAccountInformationTitle = By.xpath("(//div//h2)[1]");
@@ -36,13 +35,11 @@ public class SignUpPage {
 
 
     //Constructor
-    public SignUpPage() {
-        this.driver = DriverFactory.getDriver();
-    }
 
     //Actions
     @Step("Fill Account Info")
     public SignUpPage fillAccountInformation(String title, String password, String day, String month, String year) {
+        AdvertismentPages.closeAdsIfAny();
         if (title.equals("Mr")) {
             ElementActions.Click(titleMrRadioButton);
         } else if (title.equals("Mrs")) {
@@ -60,6 +57,7 @@ public class SignUpPage {
 
     @Step("Fill Address Personal Info")
     public SignUpPage fillAddressPersonalInformation(String firstName, String lastName, String company, String mobileNumber) {
+        AdvertismentPages.closeAdsIfAny();
         ElementActions.Type(firstNameField, firstName);
         ElementActions.Type(lastNameField, lastName);
         ElementActions.Type(companyField, company);
@@ -69,6 +67,7 @@ public class SignUpPage {
 
     @Step("Fill Address Location Info")
     public SignUpPage fillAddressLocationInformation(String address, String address2, String country, String state, String city, String zipCode) {
+        AdvertismentPages.closeAdsIfAny();
         ElementActions.Type(addressField, address);
         ElementActions.Type(address2Field, address2);
         ElementActions.SelectByValue(countryDropDow, country);
@@ -81,12 +80,14 @@ public class SignUpPage {
 
     @Step("Click On Create Account Button")
     public void clickOnCreateAccountButton() {
+        AdvertismentPages.closeAdsIfAny();
         ElementActions.Click(createAccountButton);
     }
 
     //Validation
     @Step("Assert On Enter Account Information Form Title")
     public SignUpPage assertOnEnterAccountInformationTitle(String title) {
+        AdvertismentPages.closeAdsIfAny();
         Assert.assertEquals(ElementActions.getText(enterAccountInformationTitle), title);
         return this;
     }
