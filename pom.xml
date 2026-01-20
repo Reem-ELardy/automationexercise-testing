@@ -79,8 +79,7 @@
                     <artifactId>maven-surefire-plugin</artifactId>
                     <configuration>
                         <suiteXmlFiles>
-                            <suiteXmlFile>XMLFiles/UserManagement.xml</suiteXmlFile>
-                            <suiteXmlFile>XMLFiles/ContactAndPageTests.xml</suiteXmlFile>
+                            <suiteXmlFile>TestCasesRunner.xml</suiteXmlFile>
                         </suiteXmlFiles>
                         <systemPropertyVariables>
                             <allure.results.directory>target/allure-results</allure.results.directory>
