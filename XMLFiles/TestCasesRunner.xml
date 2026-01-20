@@ -1,0 +1,7 @@
+<suite name="MasterSuite">
+    <suite-files>
+        <suite-file path="UserManagement.xml"/>
+        <suite-file path="ContactAndPageTests.xml"/>
+    </suite-files>
+</suite>
+

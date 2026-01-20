@@ -1,9 +1,0 @@
-<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite name="MasterSuite">
-    <!-- Include other XML files -->
-    <suite-files>
-        <suite-file path="XMLFiles/UserManagement.xml" />
-        <suite-file path="XMLFiles/ContactAndPageTests.xml" />
-    </suite-files>
-
-</suite>

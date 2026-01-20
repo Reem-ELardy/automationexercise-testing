@@ -11,7 +11,6 @@ import pom.pages.*;
 
 
 @Feature("Register User")
-@Listeners({TestNgListener.class})
 public class RegisterUserTest extends BaseTestClass{
     JsonFileReader testDataManager;
 

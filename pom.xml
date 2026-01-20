@@ -79,7 +79,7 @@
                     <artifactId>maven-surefire-plugin</artifactId>
                     <configuration>
                         <suiteXmlFiles>
-                            <suiteXmlFile>TestCasesRunner.xml</suiteXmlFile>
+                            <suiteXmlFile>XMLFiles/TestCasesRunner.xml</suiteXmlFile>
                         </suiteXmlFiles>
                         <systemPropertyVariables>
                             <allure.results.directory>target/allure-results</allure.results.directory>
@@ -93,9 +93,7 @@
                             </property>
                             <property>
                                 <name>listener</name>
-                                <value>utils.Framework.AllureReportChangesListener.class</value>
-                                <name>Listener</name>
-                                <value>utils.Framework.TestNgListener.class</value>
+                                <value>utils.Framework.AllureReportChangesListener,utils.Framework.TestNgListener</value>
                             </property>
                         </properties>
                     </configuration>

@@ -9,16 +9,16 @@ import org.testng.*;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 
-public class TestNgListener implements ISuiteListener, ITestListener, IInvokedMethodListener {
+public class TestNgListener implements ISuiteListener, ITestListener, IInvokedMethodListener, IExecutionListener  {
 
     @Override
-    public void onStart(ISuite Suite){
+    public void onExecutionStart(){
         System.out.println("We are starting our execution from here" );
         PropertiesReader.loadProperties();
     }
 
     @Override
-    public void onFinish(ISuite suite) {
+    public void onExecutionFinish() {
         System.out.println("Execution is finished ... Thank you !.. ");
         try {
             // Generate report

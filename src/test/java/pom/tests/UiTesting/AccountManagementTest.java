@@ -9,7 +9,6 @@ import utils.Framework.TestNgListener;
 import utils.HelperFunctions.UserFunctions;
 
 @Feature("User Account Management")
-@Listeners({TestNgListener.class})
 public class AccountManagementTest extends BaseTestClass{
     JsonFileReader testDataManager;
 
