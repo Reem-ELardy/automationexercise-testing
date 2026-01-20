@@ -12,7 +12,7 @@ import pom.pages.*;
 
 @Feature("User SignUp")
 @Listeners({TestNgListener.class})
-public class RegisterUserTest {
+public class RegisterUserTest extends BaseTestClass{
     JsonFileReader testDataManager;
 
     @Test(description = "Register a new User")
@@ -38,7 +38,6 @@ public class RegisterUserTest {
                 .clickContinueButton();
         new Dashboard()
                 .assertOnLoggedInAs(testDataManager.getData("userTestData.username"));
-
     }
 
     @Test
@@ -52,13 +51,6 @@ public class RegisterUserTest {
                 .assertSignupFormTitle(testDataManager.getData("AssertionData.SignUpFormTitle"))
                 .SignUp(testDataManager.getData("userTestData2.username"), testDataManager.getData("userTestData2.email"))
                 .assertOnSignUpError(testDataManager.getData("AssertionData.SignUpFormError"));
-
-        UserFunctions.SignInUser(testDataManager,  "userTestData2");
-    }
-
-    @AfterMethod
-    public void afterMethod() {
-        UserFunctions.deleteUserAccount();
     }
 
     @BeforeMethod
@@ -67,11 +59,18 @@ public class RegisterUserTest {
                 .navigateToHomePage();
     }
 
+    @AfterMethod
+    public void afterMethod() {
+        if(!new SignUpLoginPage().isUserInSignUpLoginPage()){
+            UserFunctions.deleteUserAccount();
+        }
+    }
+
+
     @BeforeClass(description = "SetUp browser, json file reader")
     public void setUp() {
         DriverFactory.initiateDriver();
         testDataManager = new JsonFileReader("UITestingData/registerTestData.json");
-        UserFunctions.SignUpAndLogout(testDataManager, "userTestData2");
     }
 
     @AfterClass(description = "Delete the created test account and close the browser after the test suite")

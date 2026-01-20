@@ -7,9 +7,13 @@ import org.testng.Assert;
 import utils.Framework.DriverFactory;
 import utils.Framework.ElementActions;
 
+import java.sql.SQLOutput;
+
 public class SignUpLoginPage {
     //Variables
     private WebDriver driver;
+    String expectedUrl = "https://automationexercise.com/login";
+
 
     //Locators
     private By loginEmailField = By.xpath("//input[@data-qa= 'login-email']");
@@ -29,6 +33,11 @@ public class SignUpLoginPage {
         this.driver = DriverFactory.getDriver();
     }
 
+    public boolean isUserInSignUpLoginPage() {
+        String actualUrl = this.driver.getCurrentUrl();
+        System.out.println("Actual URL: " + actualUrl);
+        return actualUrl.contains("/login");
+    }
     //Actions
     @Step("Login User Steps")
     public SignUpLoginPage login(String loginEmail, String loginPassword) {

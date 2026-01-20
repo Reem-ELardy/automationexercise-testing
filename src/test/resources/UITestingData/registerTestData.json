@@ -19,23 +19,9 @@
     "zipCode": "400001"
   },
   "userTestData2": {
-    "username": "Yoyo",
-    "email": "Yoyo@gmail.com",
-    "title": "Mrs",
-    "password": "Yoyo@123",
-    "day": "18",
-    "month": "8",
-    "year": "2002",
-    "firstName": "Yoyo",
-    "lastName": "Younis",
-    "company": "YoyoTech",
-    "mobileNumber": "+91 9876543215",
-    "address": "126 MG Road",
-    "address2": "Apt 45",
-    "country": "India",
-    "state": "Maharashtra",
-    "city": "Mumbai",
-    "zipCode": "400001"
+    "username": "Lina",
+    "email": "lina@example.com",
+    "password": "Lina@1234"
   },
   "AssertionData": {
     "SignUpFormTitle": "New User Signup!",
