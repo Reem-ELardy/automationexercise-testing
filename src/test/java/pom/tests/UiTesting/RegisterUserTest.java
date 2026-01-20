@@ -10,17 +10,17 @@ import utils.HelperFunctions.UserFunctions;
 import pom.pages.*;
 
 
-@Feature("User SignUp")
+@Feature("Register User")
 @Listeners({TestNgListener.class})
 public class RegisterUserTest extends BaseTestClass{
     JsonFileReader testDataManager;
 
-    @Test(description = "Register a new User")
-    @Description("End-to-end sign up process for a new user")
+    @Test
+    @Description("Register a new User")
     @Severity(SeverityLevel.CRITICAL)
     @Story("User Registration Validation")
     @TmsLink("AT-12")
-    public void TC1_testRegisterUser() {
+    public void TC1_RegisterNewUser() {
         new HomePage()
                 .assertHomePageVisible();
         new Dashboard()
@@ -41,8 +41,8 @@ public class RegisterUserTest extends BaseTestClass{
                 .assertOnLoggedInAs(testDataManager.getData("userTestData.username"));
     }
 
-    @Test(description = "Verify that attempting to register with an existing user shows an error")
-    @Description("Navigate to the signup page, attempt to register using a username and email that already exist, and verify that the appropriate error message is displayed")
+    @Test
+    @Description("Verify that attempting to register with an existing user shows an error")
     @Severity(SeverityLevel.NORMAL)
     @Story("User Registration Validation")
     @TmsLink("AT-16")

@@ -6,14 +6,13 @@ import pom.pages.*;
 import utils.Framework.DriverFactory;
 import utils.Framework.JsonFileReader;
 import utils.Framework.TestNgListener;
-import utils.HelperFunctions.UserFunctions;
 
-@Feature("User Login")
+@Feature("Login User")
 @Listeners({TestNgListener.class})
 public class LoginUserTest extends BaseTestClass{
     JsonFileReader loginTestDataManager;
 
-    @Test(description = "login With Valid Credentials")
+    @Test
     @Description("Login in user with a registered user email and correct password")
     @Severity(SeverityLevel.CRITICAL)
     @Story("Valid Login")
@@ -31,7 +30,7 @@ public class LoginUserTest extends BaseTestClass{
                 .clickLogOutButton();
     }
 
-    @Test(description = "login With Invalid Credentials")
+    @Test
     @Description("Login in user with a user that is not registered")
     @Severity(SeverityLevel.NORMAL)
     @Story("Invalid Login Warning")

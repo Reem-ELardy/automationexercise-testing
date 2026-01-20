@@ -15,7 +15,7 @@ import utils.Framework.TestNgListener;
 public class PageContentVerificationTest {
     JsonFileReader testDataManager;
 
-    @Test(description = "Verify that Test Cases page is displayed correctly")
+    @Test
     @Description("Check that user is navigated to Test Cases page and title is correct")
     @Severity(SeverityLevel.NORMAL)
     @Story("Page Navigation Validation")
@@ -30,7 +30,7 @@ public class PageContentVerificationTest {
     }
 
 
-    @Test(description = "Verify that API Testing page is displayed correctly")
+    @Test
     @Description("Check that user is navigated to API Testing page and title is correct")
     @Severity(SeverityLevel.NORMAL)
     @Story("Page Navigation Validation")
@@ -45,7 +45,7 @@ public class PageContentVerificationTest {
 
     }
 
-    @Test(description = "Verify that clicking the Video Tutorials button navigates user to YouTube")
+    @Test
     @Description("Check that the Video Tutorials button opens the AutomationExercise YouTube page")
     @Severity(SeverityLevel.NORMAL)
     @Story("Navigation Validation")

@@ -9,12 +9,12 @@ import utils.Framework.DriverFactory;
 import utils.Framework.JsonFileReader;
 import utils.Framework.TestNgListener;
 
+@Feature("Logout User")
 @Listeners({TestNgListener.class})
-@Feature("User Logout")
 public class LogoutUserTest extends BaseTestClass{
     JsonFileReader testDataManager;
 
-    @Test(description = "Verify that a registered user can log out successfully")
+    @Test
     @Description("Logs in with a registered user, verifies login, performs logout, and verifies that the login page is displayed again")
     @Severity(SeverityLevel.NORMAL)
     @Story("User Logout Functionality")

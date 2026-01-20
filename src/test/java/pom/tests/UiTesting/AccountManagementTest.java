@@ -13,7 +13,7 @@ import utils.HelperFunctions.UserFunctions;
 public class AccountManagementTest extends BaseTestClass{
     JsonFileReader testDataManager;
 
-    @Test(description = "Verify a user can delete their account and cannot log in afterward")
+    @Test
     @Description("Logs in, deletes the user account, and verifies login fails with an invalid login warning")
     @Severity(SeverityLevel.CRITICAL)
     @Story("User Account Management")

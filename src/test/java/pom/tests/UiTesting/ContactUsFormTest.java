@@ -14,8 +14,8 @@ import utils.Framework.TestNgListener;
 public class ContactUsFormTest {
     JsonFileReader testDataManager;
 
-    @Test(description = "Verify successful submission of the Contact Us form with valid data")
-    @Description("Fill in the Contact Us form with valid details, upload a file, submit the form, accept the confirmation alert, and verify the success message is displayed")
+    @Test
+    @Description("Verify successful submission of the Contact Us form with valid data")
     @Severity(SeverityLevel.NORMAL)
     @Story("Contact Us Form Submission")
     @TmsLink("AT-17")
@@ -36,8 +36,8 @@ public class ContactUsFormTest {
     }
 
 
-    @Test(description = "Verify Contact Us form is not submitted when confirmation alert is dismissed")
-    @Description("Fill in the Contact Us form with valid details, attempt to submit the form, dismiss the confirmation alert, and verify that no success message is displayed and data remains")
+    @Test
+    @Description("Verify Contact Us form is not submitted when confirmation alert is dismissed")
     @Severity(SeverityLevel.NORMAL)
     @Story("Contact Us Form Submission")
     @TmsLink("AT-43")
