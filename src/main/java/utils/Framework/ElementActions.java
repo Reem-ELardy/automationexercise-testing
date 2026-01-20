@@ -75,6 +75,15 @@ public class ElementActions {
         return "";
     }
 
+    static public String getValueAttribute(By elementLocator) {
+        try {
+            return getElement(elementLocator).getAttribute("value");
+        } catch (Exception e) {
+            Assert.fail(e.getMessage());
+        }
+        return "";
+    }
+
     public static void scrollToElement(By elementLocator) {
         Actions actions = new Actions(DriverFactory.getDriver());
         actions.scrollToElement(getElement(elementLocator)).perform();
