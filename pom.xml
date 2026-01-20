@@ -80,6 +80,7 @@
                     <configuration>
                         <suiteXmlFiles>
                             <suiteXmlFile>XMLFiles/UserManagement.xml</suiteXmlFile>
+                            <suiteXmlFile>XMLFiles/ContactAndPageTests.xml</suiteXmlFile>
                         </suiteXmlFiles>
                         <systemPropertyVariables>
                             <allure.results.directory>target/allure-results</allure.results.directory>
@@ -93,7 +94,7 @@
                             </property>
                             <property>
                                 <name>listener</name>
-                                <value>utils.Framework.AllureReportChangesListener</value>
+                                <value>utils.Framework.AllureReportChangesListener.class</value>
                                 <name>Listener</name>
                                 <value>utils.Framework.TestNgListener.class</value>
                             </property>
