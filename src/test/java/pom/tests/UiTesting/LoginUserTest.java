@@ -10,7 +10,7 @@ import utils.HelperFunctions.UserFunctions;
 
 @Feature("User Login")
 @Listeners({TestNgListener.class})
-public class LoginUserTest {
+public class LoginUserTest extends BaseTestClass{
     JsonFileReader loginTestDataManager;
 
     @Test(description = "login With Valid Credentials")
@@ -52,18 +52,14 @@ public class LoginUserTest {
         new HomePage().navigateToHomePage();
     }
 
-    @BeforeClass(description = "SetUp browser, json file reader and register a new test user ")
+    @BeforeClass(description = "SetUp browser, json file reader")
     public void setUp() {
         DriverFactory.initiateDriver();
         loginTestDataManager = new JsonFileReader("UITestingData/loginTestData.json");
-
-        UserFunctions.SignUpAndLogout(loginTestDataManager, "UserData.userTestDataForRegisterFirst");
     }
 
     @AfterClass(description = "Delete the created test account and close the browser after the test suite")
     public void tearDown() {
-        UserFunctions.SignInUser(loginTestDataManager, "UserData.userTestDataForRegisterFirst");
-        UserFunctions.deleteUserAccount();
         DriverFactory.quitDriver();
     }
 }
