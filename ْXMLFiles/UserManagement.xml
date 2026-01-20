@@ -1,0 +1,28 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="User Management">
+
+    <test name="Register User Tests">
+        <classes>
+            <class name="pom.tests.UiTesting.RegisterUserTest"/>
+        </classes>
+    </test>
+
+    <test name="Login Tests">
+        <classes>
+            <class name="pom.tests.UiTesting.LoginUserTest"/>
+        </classes>
+    </test>
+
+    <test name="Logout Test">
+        <classes>
+            <class name="pom.tests.UiTesting.LogoutUserTest"/>
+        </classes>
+    </test>
+
+    <test name="Delete Account Test">
+        <classes>
+            <class name="pom.tests.UiTesting.AccountManagementTest"/>
+        </classes>
+    </test>
+
+</suite>

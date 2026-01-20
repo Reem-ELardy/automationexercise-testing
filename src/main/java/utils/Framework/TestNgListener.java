@@ -13,7 +13,7 @@ public class TestNgListener implements ISuiteListener, ITestListener, IInvokedMe
 
     @Override
     public void onStart(ISuite Suite){
-        System.out.println("Hello from Giza Systems interns 2025" + "\n" + "We are starting our execution from here" );
+        System.out.println("We are starting our execution from here" );
         PropertiesReader.loadProperties();
     }
 
