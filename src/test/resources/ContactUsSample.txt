@@ -1,0 +1,14 @@
+Hello Automation Exercise Team,
+
+This file is uploaded as part of an automated test for the Contact Us form.
+
+Purpose:
+- Validate file upload functionality
+- Verify successful form submission
+
+Tested By: QA Automation
+Environment: Test
+Automation Tool: Selenium with TestNG
+
+Regards,
+Automation Test Suite

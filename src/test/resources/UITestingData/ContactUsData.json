@@ -1,0 +1,12 @@
+{
+  "ContactUsPageTitle": "contact us",
+  "ContactUsFormTitle": "get in touch",
+  "ContactUsFormData": {
+    "name": "Linax",
+    "email": "LinaX@gmail.com",
+    "subject":"Automation Testing Inquiry",
+    "message": "This is a test message for Contact Us form automation.",
+    "UploadedFilePath" : "src/test/resources/ContactUsSample.txt"
+  },
+  "ConactUsSuccessMessage": "Success! Your details have been submitted successfully."
+}
