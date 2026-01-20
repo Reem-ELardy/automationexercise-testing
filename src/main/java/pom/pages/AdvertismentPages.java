@@ -16,7 +16,7 @@ public class AdvertismentPages {
         WebDriver driver = DriverFactory.getDriver();
         try {
             // Use try/catch to avoid Timeout if element not present
-            if (ElementActions.isElementPresent(adDiv)) {
+            if (ElementActions.isElementPresent(close) || ElementActions.isElementPresent(dismiss)) {
                 try {
                     ElementActions.Click(close);
                 } catch (NoSuchElementException e) {
