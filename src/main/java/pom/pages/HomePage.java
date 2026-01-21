@@ -18,6 +18,9 @@ public class HomePage {
     private By ScrollUpButton = By.id("scrollUp");
     private By SubscriptionSections = By.xpath("//footer[@id='footer']//h2");
     private By SliderText = By.xpath("//div[@id='slider-carousel']//div[@class='item active']//h2");
+    private By SubscriptionEmail = By.id("susbscribe_email");
+    private By SubmitSubscriptionButton = By.id("subscribe");
+    private By SuccessSubscriptionAllert = By.className("alert-success");
 
     //Constructor
 
@@ -49,6 +52,14 @@ public class HomePage {
         return this;
     }
 
+    @Step("Subscribe using email")
+    public HomePage SubscriptionProcess(String email){
+        AdvertismentPages.closeAdsIfAny();
+        ElementActions.Type(SubscriptionEmail, email);
+        ElementActions.Click(SubmitSubscriptionButton);
+        return this;
+    }
+
 
     //Validation
     @Step("Validate that Home Page is Visible")
@@ -68,6 +79,13 @@ public class HomePage {
     public HomePage verifySliderText(String Text){
         AdvertismentPages.closeAdsIfAny();
         Assert.assertTrue(ElementActions.getText(SliderText).contains(Text));
+        return this;
+    }
+
+    @Step("Verify subscription success message is displayed")
+    public HomePage assertOnSubscriptionSucessMessage(String successMessage){
+        AdvertismentPages.closeAdsIfAny();
+        Assert.assertTrue(ElementActions.getText(SuccessSubscriptionAllert).contains(successMessage));
         return this;
     }
 }
