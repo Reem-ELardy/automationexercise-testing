@@ -11,13 +11,13 @@ import java.util.Map;
 public class APICallsUtils {
     public static String postRequestAndExtract(String url, String body, String extractedData) {
         return RestAssured
-                .given()
+        .given()
                 .contentType("application/x-www-form-urlencoded")
                 .body(body)
                 .log().all()
-                .when()
+        .when()
                 .post(url)
-                .then()
+        .then()
                 .log().body().extract().body().jsonPath().get(extractedData).toString();
     }
 

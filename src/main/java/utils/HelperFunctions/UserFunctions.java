@@ -4,7 +4,7 @@ import pom.pages.*;
 import utils.Framework.JsonFileReader;
 
 public class UserFunctions {
-    public static void SignUpAndLogout(JsonFileReader dataManager, String parentJsonPath){
+    public static void SignUpAndLogout(JsonFileReader dataManager, String parentJsonPath) {
         new HomePage()
                 .navigateToHomePage();
         new Dashboard()
@@ -22,7 +22,7 @@ public class UserFunctions {
                 .clickLogOutButton();
     }
 
-    public static void SignUpUser(JsonFileReader dataManager, String parentJsonPath){
+    public static void SignUpUser(JsonFileReader dataManager, String parentJsonPath) {
         new HomePage()
                 .navigateToHomePage();
         new Dashboard()
@@ -38,14 +38,14 @@ public class UserFunctions {
                 .clickContinueButton();
     }
 
-    public static void SignInUser(JsonFileReader dataManager, String parentJsonPath){
+    public static void SignInUser(JsonFileReader dataManager, String parentJsonPath) {
         new Dashboard()
                 .clickSignupLoginButton();
         new SignUpLoginPage()
                 .login(dataManager.getData(parentJsonPath + ".email"), dataManager.getData(parentJsonPath + ".password"));
     }
 
-    public static void deleteUserAccount(){
+    public static void deleteUserAccount() {
         new Dashboard()
                 .clickDeleteAccountButton();
         new AccountDeletedPage()

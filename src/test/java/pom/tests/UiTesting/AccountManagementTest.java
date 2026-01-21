@@ -6,10 +6,10 @@ import pom.pages.*;
 import utils.Framework.DriverFactory;
 import utils.Framework.JsonFileReader;
 import utils.Framework.TestNgListener;
-import utils.HelperFunctions.UserFunctions;
 
 @Feature("User Account Management")
-public class AccountManagementTest extends BaseTestClass{
+@Listeners({TestNgListener.class})
+public class AccountManagementTest extends BaseTestClass {
     JsonFileReader testDataManager;
 
     @Test

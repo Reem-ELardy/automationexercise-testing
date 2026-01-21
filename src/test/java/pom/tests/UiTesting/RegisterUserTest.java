@@ -1,7 +1,6 @@
 package pom.tests.UiTesting;
 
 import io.qameta.allure.*;
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 import utils.Framework.DriverFactory;
 import utils.Framework.JsonFileReader;
@@ -11,7 +10,8 @@ import pom.pages.*;
 
 
 @Feature("Register User")
-public class RegisterUserTest extends BaseTestClass{
+@Listeners({TestNgListener.class})
+public class RegisterUserTest extends BaseTestClass {
     JsonFileReader testDataManager;
 
     @Test
@@ -64,7 +64,7 @@ public class RegisterUserTest extends BaseTestClass{
 
     @AfterMethod(description = "Delete User account if the user is logged In")
     public void afterMethod() {
-        if(!new SignUpLoginPage().isUserInSignUpLoginPage()){
+        if (!new SignUpLoginPage().isUserInSignUpLoginPage()) {
             UserFunctions.deleteUserAccount();
         }
     }
@@ -75,7 +75,7 @@ public class RegisterUserTest extends BaseTestClass{
         testDataManager = new JsonFileReader("UITestingData/registerTestData.json");
     }
 
-    @AfterClass(description = "Delete the created test account and close the browser after the test suite")
+    @AfterClass(description = "Close the browser after the test suite")
     public void tearDown() {
         DriverFactory.quitDriver();
     }

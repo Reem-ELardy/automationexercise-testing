@@ -10,7 +10,8 @@ import utils.Framework.JsonFileReader;
 import utils.Framework.TestNgListener;
 
 @Feature("Logout User")
-public class LogoutUserTest extends BaseTestClass{
+@Listeners({TestNgListener.class})
+public class LogoutUserTest extends BaseTestClass {
     JsonFileReader testDataManager;
 
     @Test

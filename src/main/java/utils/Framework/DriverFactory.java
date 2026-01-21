@@ -24,27 +24,27 @@ public class DriverFactory {
     static public WebDriver initiateBrowser(String BrowserName, boolean headless, boolean maximizaWindow) {
         switch (BrowserName) {
             case "firefox":
-                if(headless){
+                if (headless) {
                     FirefoxOptions firefoxOptions = new FirefoxOptions();
                     firefoxOptions.addArguments("--headless=new");
                     driver = new FirefoxDriver(firefoxOptions);
-                }else
+                } else
                     driver = new FirefoxDriver();
                 break;
             case "chrome":
-                if(headless){
+                if (headless) {
                     ChromeOptions chromeOptions = new ChromeOptions();
                     chromeOptions.addArguments("--headless=new");
                     driver = new ChromeDriver(chromeOptions);
-                }else
+                } else
                     driver = new ChromeDriver();
                 break;
             case "edge":
-                if(headless){
+                if (headless) {
                     EdgeOptions edgeOptions = new EdgeOptions();
                     edgeOptions.addArguments("--headless=new");
                     driver = new EdgeDriver(edgeOptions);
-                }else
+                } else
                     driver = new EdgeDriver();
                 break;
             default:

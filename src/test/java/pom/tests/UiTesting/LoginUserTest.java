@@ -8,7 +8,8 @@ import utils.Framework.JsonFileReader;
 import utils.Framework.TestNgListener;
 
 @Feature("Login User")
-public class LoginUserTest extends BaseTestClass{
+@Listeners({TestNgListener.class})
+public class LoginUserTest extends BaseTestClass {
     JsonFileReader loginTestDataManager;
 
     @Test

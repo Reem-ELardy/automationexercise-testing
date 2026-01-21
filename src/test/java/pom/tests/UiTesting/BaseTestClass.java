@@ -1,11 +1,11 @@
 package pom.tests.UiTesting;
 
-import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import pom.pages.HomePage;
 import utils.Framework.DriverFactory;
 import utils.Framework.JsonFileReader;
 import utils.HelperFunctions.UserFunctions;
+
 
 public class BaseTestClass {
     JsonFileReader testDataManager;

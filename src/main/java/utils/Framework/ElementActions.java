@@ -96,11 +96,11 @@ public class ElementActions {
         }
     }
 
-    public static boolean isELementEnabled(By elementLocator){
+    public static boolean isELementEnabled(By elementLocator) {
         return getElement(elementLocator).isEnabled();
     }
 
-    public static boolean isELementDisplayed(By elementLocator){
+    public static boolean isELementDisplayed(By elementLocator) {
         return getElement(elementLocator).isDisplayed();
     }
 
@@ -111,7 +111,6 @@ public class ElementActions {
             return false;
         }
     }
-
 
 
 }

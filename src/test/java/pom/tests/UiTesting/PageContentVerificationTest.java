@@ -11,6 +11,7 @@ import utils.Framework.JsonFileReader;
 import utils.Framework.TestNgListener;
 
 @Feature("Page Content Verification")
+@Listeners({TestNgListener.class})
 public class PageContentVerificationTest {
     JsonFileReader testDataManager;
 

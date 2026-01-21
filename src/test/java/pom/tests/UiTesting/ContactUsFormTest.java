@@ -7,8 +7,10 @@ import pom.pages.Dashboard;
 import pom.pages.HomePage;
 import utils.Framework.DriverFactory;
 import utils.Framework.JsonFileReader;
+import utils.Framework.TestNgListener;
 
 @Feature("Contact Us Form")
+@Listeners({TestNgListener.class})
 public class ContactUsFormTest {
     JsonFileReader testDataManager;
 

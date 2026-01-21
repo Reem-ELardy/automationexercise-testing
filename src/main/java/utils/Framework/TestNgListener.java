@@ -9,11 +9,11 @@ import org.testng.*;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 
-public class TestNgListener implements ISuiteListener, ITestListener, IInvokedMethodListener, IExecutionListener  {
+public class TestNgListener implements ISuiteListener, ITestListener, IInvokedMethodListener, IExecutionListener {
 
     @Override
-    public void onExecutionStart(){
-        System.out.println("We are starting our execution from here" );
+    public void onExecutionStart() {
+        System.out.println("We are starting our execution from here");
         PropertiesReader.loadProperties();
     }
 
@@ -22,7 +22,7 @@ public class TestNgListener implements ISuiteListener, ITestListener, IInvokedMe
         System.out.println("Execution is finished ... Thank you !.. ");
         try {
             // Generate report
-            String[] generateCmd = { "cmd.exe", "/c", "mvn allure:report" };
+            String[] generateCmd = {"cmd.exe", "/c", "mvn allure:report"};
             Process genProcess = new ProcessBuilder(generateCmd)
                     .inheritIO()
                     .start();
@@ -33,7 +33,7 @@ public class TestNgListener implements ISuiteListener, ITestListener, IInvokedMe
 
             // Serve report (optional)
             File htmlFile = new File(reportPath + "\\index.html");
-            if(htmlFile.exists()) {
+            if (htmlFile.exists()) {
                 java.awt.Desktop.getDesktop().browse(htmlFile.toURI());
                 System.out.println("Allure report opened in browser!");
             }
