@@ -38,6 +38,18 @@ public class ElementActions {
         getElement(elementLocator).click();
     }
 
+    public static void clickElementFromList(By locator, String visibleText) {
+        List<WebElement> elements = getElements(locator);
+        for (WebElement el : elements) {
+            if (el.getText().trim().toLowerCase().contains(visibleText)) {
+                el.click();
+                return;
+            }
+        }
+        Assert.fail("Element with text '" + visibleText + "' not found for locator: " + locator);
+    }
+
+
     static public void SelectByValue(By elementLocator, String value) {
         Select selectOption = new Select(getElement(elementLocator));
         try {

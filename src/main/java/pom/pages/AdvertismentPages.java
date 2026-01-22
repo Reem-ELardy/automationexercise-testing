@@ -12,17 +12,23 @@ public class AdvertismentPages {
     private static By adDiv = By.id("ad_position_box");
 
     public static void closeAdsIfAny() {
-        WebDriver driver = DriverFactory.getDriver();
-        try {
-            // Use try/catch to avoid Timeout if element not present
-            if (ElementActions.isElementPresent(dismiss)) {
-                ElementActions.Click(dismiss);
-                driver.switchTo().defaultContent(); // return to main content
-                System.out.println("Ad closed successfully.");
-            }
-        } catch (Exception e) {
-            System.out.println("No ad to close or error occurred: " + e.getMessage());
-        }
+//        WebDriver driver = DriverFactory.getDriver();
+//        try {
+//            // Use try/catch to avoid Timeout if element not present
+//            if (ElementActions.isElementPresent(dismiss)) {
+//                ElementActions.Click(dismiss);
+//                driver.switchTo().defaultContent(); // return to main content
+//                System.out.println("Ad closed successfully.");
+//            }
+//        } catch (Exception e) {
+//            System.out.println("No ad to close or error occurred: " + e.getMessage());
+//        }
+        JavascriptExecutor js = (JavascriptExecutor) DriverFactory.getDriver();
+        js.executeScript("""
+        document.querySelectorAll(
+            'iframe, ins.adsbygoogle, div.google-auto-placed'
+        ).forEach(e => e.remove());
+    """);
     }
 
     public static void closeStickyAds() {

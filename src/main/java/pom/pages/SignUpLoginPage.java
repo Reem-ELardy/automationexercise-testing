@@ -50,7 +50,6 @@ public class SignUpLoginPage {
     @Step("Assert that user is in SignUp/Login Page")
     public boolean isUserInSignUpLoginPage() {
         String actualUrl = DriverFactory.getDriver().getCurrentUrl();
-        System.out.println("Actual URL: " + actualUrl);
         return actualUrl.contains("/login") || actualUrl.contains("/signup");
     }
 
