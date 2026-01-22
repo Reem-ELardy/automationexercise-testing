@@ -1,0 +1,42 @@
+{
+  "ProductsPageTitle": "all products",
+  "categoryTitle": "category",
+  "BrandTitle": "brands",
+  "CategoryPageTitle" : "%s - %s products",
+  "BrandPageTitle" : "brand - %s products",
+  "Categories": {
+    "womenCat": {
+      "name": "women",
+      "subCategories": {
+        "One": "dress",
+        "Two": "tops",
+        "Three": "saree"
+      }
+    },
+    "menCat": {
+      "name": "men",
+      "subCategories": {
+        "One": "tshirts",
+        "Two": "jeans"
+      }
+    },
+    "kidsCat": {
+      "name": "kids",
+      "subCategories": {
+        "One": "dress",
+        "Two": "tops & shirts"
+      }
+    }
+  },
+  "Brands": {
+    "One": "polo",
+    "Two": "h&m",
+    "Three": "madame",
+    "Four": "mast & harbour",
+    "Five": "babyhug",
+    "Six": "allen solly junior",
+    "Seven": "kookie kids",
+    "Eight": "biba"
+
+  }
+}
