@@ -18,13 +18,14 @@ public class CategoryProductPage {
 
 
     //Validation
-    @Step("Verify products page title contains")
+    @Step("Verify category page title")
     public CategoryProductPage assertOnCategoryPageTitle(String category) {
         AdvertismentPages.closeAdsIfAny();
         Assert.assertTrue(ElementActions.getText(categoryPageTitle).toLowerCase().contains(category));
         return this;
     }
 
+    @Step("Verify user is on Category Page")
     public CategoryProductPage verifyUserInCategoryPage() {
         String actualUrl = DriverFactory.getDriver().getCurrentUrl();
         Assert.assertTrue(actualUrl.contains("/category_products"));

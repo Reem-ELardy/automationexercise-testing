@@ -1,7 +1,6 @@
 package pom.tests.UiTesting;
 
-import io.qameta.allure.Feature;
-import io.qameta.allure.TmsLink;
+import io.qameta.allure.*;
 import org.testng.annotations.*;
 import pom.pages.*;
 import utils.Framework.DriverFactory;
@@ -14,6 +13,9 @@ public class ProductListingTest {
     JsonFileReader testDataManager;
 
     @Test
+    @Description("Verify that all product details are displayed correctly on product page")
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("User views all product details")
     @TmsLink("AT-19")
     public void TC8_AllProductsDetailsTest() {
         new Dashboard()
@@ -30,6 +32,9 @@ public class ProductListingTest {
     }
 
     @Test
+    @Description("Verify user can view products by category and subcategory and category page displays correct title")
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("User views products filtered by category")
     @TmsLink("AT-29")
     public void TC18_ViewCategoryAndFilterTest() {
         new Dashboard()
@@ -60,6 +65,9 @@ public class ProductListingTest {
     }
 
     @Test
+    @Description("Verify that a user can view products of specific brands and brand page displays correct title")
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("User views products filtered by brand")
     @TmsLink("AT-30")
     public void TC19_ViewBrandAndFilterTest() {
         new Dashboard()

@@ -21,20 +21,21 @@ public class BrandProductsPage {
 
 
     //Validation
-    @Step("Verify products page title contains")
+    @Step("Verify brand page title")
     public BrandProductsPage assertOnBrandPageTitle(String Title) {
         AdvertismentPages.closeAdsIfAny();
         Assert.assertTrue(ElementActions.getText(brandPageTitle).toLowerCase().contains(Title));
         return this;
     }
 
+    @Step("Verify user is on Brand Page")
     public BrandProductsPage verifyUserInBrandPage() {
         String actualUrl = DriverFactory.getDriver().getCurrentUrl();
         Assert.assertTrue(actualUrl.contains("/brand_products"));
         return this;
     }
 
-
+    @Step("Verify brand products are displayed")
     public BrandProductsPage verifyProductsListing(){
         AdvertismentPages.closeAdsIfAny();
         ElementActions.isELementDisplayed(productListingContainer);

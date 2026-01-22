@@ -52,13 +52,16 @@ public class ProductDetailsPage {
         return this;
     }
 
+    @Step("Verify user is on Product Details Page")
     public ProductDetailsPage verifyUserInProductDetailsPage() {
         String actualUrl = DriverFactory.getDriver().getCurrentUrl();
         Assert.assertTrue(actualUrl.contains("/product_details"));
         return this;
     }
 
+    @Step("Verify all product data is visible")
     public ProductDetailsPage verifyProductDataIsVisible(){
+        AdvertismentPages.closeAdsIfAny();
         Assert.assertFalse(ElementActions.getText(productName).isEmpty());
         Assert.assertFalse(ElementActions.getText(productCategoty).isEmpty());
         Assert.assertFalse(ElementActions.getText(productPrice).isEmpty());

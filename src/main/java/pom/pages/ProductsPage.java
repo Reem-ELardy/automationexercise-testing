@@ -36,6 +36,7 @@ public class ProductsPage {
         return this;
     }
 
+    @Step("Verify that product listing is visible and has more than one product")
     public ProductsPage verifyProductsListing(){
         AdvertismentPages.closeAdsIfAny();
         ElementActions.isELementDisplayed(productListingContainer);

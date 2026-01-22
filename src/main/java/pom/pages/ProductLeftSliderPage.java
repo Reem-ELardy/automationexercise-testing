@@ -24,40 +24,51 @@ public class ProductLeftSliderPage {
     //Constructor
 
     //Actions
+    @Step("Click on Women category")
     public ProductLeftSliderPage clickWomenCategory() {
         AdvertismentPages.closeAdsIfAny();
         ElementActions.Click(WomenCategory);
         return this;
     }
 
+    @Step("Click on Men category")
     public ProductLeftSliderPage clickMenCategory() {
         AdvertismentPages.closeAdsIfAny();
         ElementActions.Click(MenCategory);
         return this;
     }
 
+    @Step("Click on Kids category")
     public ProductLeftSliderPage clickKidsCategory() {
         AdvertismentPages.closeAdsIfAny();
         ElementActions.Click(KidsCategory);
         return this;
     }
 
+    @Step("Click on Women subcategory")
     public ProductLeftSliderPage clickWomenSubCategory(String categoryName) {
+        AdvertismentPages.closeAdsIfAny();
         ElementActions.clickElementFromList(womenSubCategoryLinks, categoryName);
         return this;
     }
 
+    @Step("Click on Men subcategory")
     public ProductLeftSliderPage clickMenSubCategory(String categoryName) {
+        AdvertismentPages.closeAdsIfAny();
         ElementActions.clickElementFromList(menSubCategoryLinks, categoryName);
         return this;
     }
 
+    @Step("Click on Kids subcategory")
     public ProductLeftSliderPage clickKidsSubCategory(String categoryName) {
+        AdvertismentPages.closeAdsIfAny();
         ElementActions.clickElementFromList(kidsSubCategoryLinks, categoryName);
         return this;
     }
 
+    @Step("Click on specific brand")
     public ProductLeftSliderPage clickSpecificBrand(String brandName) {
+        AdvertismentPages.closeAdsIfAny();
         ElementActions.scrollToElement(BrandSubCategoryLinks);
         ElementActions.clickElementFromList(BrandSubCategoryLinks, brandName);
         return this;
@@ -65,13 +76,14 @@ public class ProductLeftSliderPage {
 
 
     //Validation
-    @Step("Verify products page title contains")
+    @Step("Verify category title")
     public ProductLeftSliderPage assertOnCategoryTitle(String Title) {
         AdvertismentPages.closeAdsIfAny();
         Assert.assertTrue(ElementActions.getText(categoryTitle).toLowerCase().contains(Title));
         return this;
     }
 
+    @Step("Verify brands title equals")
     public ProductLeftSliderPage assertOnBrandsTitle(String Title){
         AdvertismentPages.closeAdsIfAny();
         Assert.assertTrue(ElementActions.getText(BrandsTitle).toLowerCase().equalsIgnoreCase(Title));
