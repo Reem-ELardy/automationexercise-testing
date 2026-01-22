@@ -1,13 +1,21 @@
 package utils.Framework;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
+import java.util.List;
+
 
 public class ElementActions {
+
+    static public List<WebElement> getElements(By locator) {
+        Waits.explicitWaitToBeVisibile(locator);
+        return DriverFactory.getDriver().findElements(locator);
+    }
 
     static public WebElement getElement(By locator) {
         Waits.explicitWaitToBeVisibile(locator);
@@ -87,6 +95,11 @@ public class ElementActions {
     public static void scrollToElement(By elementLocator) {
         Actions actions = new Actions(DriverFactory.getDriver());
         actions.scrollToElement(getElement(elementLocator)).perform();
+    }
+
+    public static void HoverOnElement(By elementLocator) {
+        Actions actions = new Actions(DriverFactory.getDriver());
+        actions.moveToElement(getElement(elementLocator)).perform();
     }
 
     public static void checkCheckbox(By elementLocator) {
