@@ -13,6 +13,8 @@ public class ProductsPage {
     private By FirstProductDiv = By.xpath("(//div[@class='col-sm-4']//div[@class='product-image-wrapper'])[1]");
     private By FirstProductHover = By.xpath("(//div[@class='col-sm-4']//div[@class='product-overlay'])[1]");
     private By viewFirstProductButtons = By.xpath("(//div[@class='col-sm-4']//div[@class='choose'])[1]");
+    private By productsCards = By.className("product-image-wrapper");
+    private By productListingContainer = By.className("features_items");
 
     //Constructor
 
@@ -33,4 +35,12 @@ public class ProductsPage {
         Assert.assertTrue(ElementActions.getText(productsPageTitle).toLowerCase().contains(Title));
         return this;
     }
+
+    public ProductsPage verifyProductsListing(){
+        AdvertismentPages.closeAdsIfAny();
+        ElementActions.isELementDisplayed(productListingContainer);
+        Assert.assertTrue(ElementActions.getElements(productsCards).size() > 1);
+        return this;
+    }
+
 }
