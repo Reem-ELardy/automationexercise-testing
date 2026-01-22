@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 public class ElementActions {
@@ -46,7 +47,6 @@ public class ElementActions {
                 return;
             }
         }
-        Assert.fail("Element with text '" + visibleText + "' not found for locator: " + locator);
     }
 
 
@@ -93,6 +93,18 @@ public class ElementActions {
             Assert.fail(e.getMessage());
         }
         return "";
+    }
+
+    public static List<String> getTexts(By elementsLocator) {
+        try {
+            List<WebElement> elements = getElements(elementsLocator);
+            return elements.stream()
+                    .map(WebElement::getText)
+                    .collect(Collectors.toList());
+        } catch (Exception e) {
+            Assert.fail(e.getMessage());
+        }
+        return null;
     }
 
     static public String getValueAttribute(By elementLocator) {

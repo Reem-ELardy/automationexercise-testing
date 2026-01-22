@@ -1,11 +1,11 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Product Search, Review and Listing">
 
-<!--    <test name="Product Search Tests">-->
-<!--        <classes>-->
-<!--            <class name="pom.tests.UiTesting.ProductSearchTest"/>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="Product Search Tests">
+        <classes>
+            <class name="pom.tests.UiTesting.ProductSearchTest"/>
+        </classes>
+    </test>
 
     <test name="Product Review Tests">
         <classes>
