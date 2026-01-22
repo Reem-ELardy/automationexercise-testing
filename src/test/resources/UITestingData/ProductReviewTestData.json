@@ -1,0 +1,10 @@
+{
+  "ProductsPageTitle": "all products",
+  "ReviewSectionTitle": "write your review",
+  "ReviewSuccessMessage": "Thank you for your review.",
+  "ReviewData": {
+    "name": "John Doe",
+    "email": "john.doe@test.com",
+    "review": "Amazing product! Highly recommended."
+  }
+}
