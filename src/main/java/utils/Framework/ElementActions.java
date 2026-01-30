@@ -49,6 +49,10 @@ public class ElementActions {
         }
     }
 
+    public static void clickAndWaitForCountDecrease(By clickLocator, By listLocator, int previousCount, int decrement) {
+        Click(clickLocator);
+        Waits.waitForElementsCountToDecrease(listLocator, previousCount, decrement);
+    }
 
     static public void SelectByValue(By elementLocator, String value) {
         Select selectOption = new Select(getElement(elementLocator));
@@ -139,6 +143,15 @@ public class ElementActions {
 
     public static boolean isELementDisplayed(By elementLocator) {
         return getElement(elementLocator).isDisplayed();
+    }
+
+    public static boolean isElementInvisible(By locator) {
+        try {
+            Waits.explicitWaitToBeInvisibile(locator);
+            return true; // element became invisible or removed
+        } catch (Exception e) {
+            return false; // element still visible or wait timed out
+        }
     }
 
     public static boolean isElementPresent(By locator) {

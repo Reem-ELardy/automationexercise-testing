@@ -1,12 +1,22 @@
 package utils.Framework;
 
+import org.openqa.selenium.NoAlertPresentException;
+
 public class AlertHandler {
     public static void acceptAlert() {
-        DriverFactory.getDriver().switchTo().alert().accept();
+        try {
+            DriverFactory.getDriver().switchTo().alert().accept();
+        } catch (NoAlertPresentException e) {
+            // no alert, continue
+        }
     }
 
     public static void closeAlert() {
-        DriverFactory.getDriver().switchTo().alert().dismiss();
+        try{
+            DriverFactory.getDriver().switchTo().alert().dismiss();
+        }catch (NoAlertPresentException e) {
+            // no alert, continue
+        }
     }
 
     public static void sendTextToAlert(String text) {
