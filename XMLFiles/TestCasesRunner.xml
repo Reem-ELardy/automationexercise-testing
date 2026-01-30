@@ -3,6 +3,7 @@
         <suite-file path="ContactAndPageTests.xml"/>
         <suite-file path="ProductsTests.xml"/>
         <suite-file path="UserManagement.xml"/>
+        <suite-file path="CartAndCheckoutTests.xml"/>
     </suite-files>
 </suite>
 

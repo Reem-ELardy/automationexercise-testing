@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Cart And Checkout Test Cases">
+
+    <test name="Cart Tests">
+        <classes>
+            <class name="pom.tests.UiTesting.CartTest"/>
+        </classes>
+    </test>
+
+    <test name="Checkout Tests">
+        <classes>
+            <class name="pom.tests.UiTesting.CheckoutTest"/>
+        </classes>
+    </test>
+</suite>
