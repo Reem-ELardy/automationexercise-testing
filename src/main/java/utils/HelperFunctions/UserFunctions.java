@@ -51,4 +51,11 @@ public class UserFunctions {
         new AccountDeletedPage()
                 .clickContinueButton();
     }
+
+    public static void MakeTheCartEmpty(){
+        new Dashboard()
+                .clickCartButton();
+        new CartPage()
+                .MakeTheCartEmpty();
+    }
 }
