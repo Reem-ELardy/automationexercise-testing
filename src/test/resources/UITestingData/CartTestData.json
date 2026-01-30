@@ -1,0 +1,31 @@
+{
+  "Quantity" : "4",
+  "RecommendationSectionTitle" : "recommended items",
+  "ProductsPageTitle": "all products",
+  "SearchedProductTitle": "searched products",
+
+  "NumberOfProductsAdded" : "2",
+  "NumberOfRecommendedItemsAdded" : "1",
+  "searchText": "blue",
+
+  "userTestDataNew": {
+    "username": "Amira",
+    "email": "amira.unique@example.com",
+    "title": "Mrs",
+    "password": "Amira@5678Unique",
+    "day": "10",
+    "month": "7",
+    "year": "1992",
+    "firstName": "Amira",
+    "lastName": "Patel",
+    "company": "AmiraTech",
+    "mobileNumber": "+91 9876543210",
+    "address": "789 Garden Avenue",
+    "address2": "Floor 3",
+    "country": "India",
+    "state": "Maharashtra",
+    "city": "Mumbai",
+    "zipCode": "400001"
+  }
+
+}
