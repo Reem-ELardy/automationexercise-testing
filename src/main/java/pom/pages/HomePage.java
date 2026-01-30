@@ -21,7 +21,9 @@ public class HomePage {
     private By SubscriptionEmail = By.id("susbscribe_email");
     private By SubmitSubscriptionButton = By.id("subscribe");
     private By SuccessSubscriptionAllert = By.className("alert-success");
-
+    private By firstRecomAddToCart = By.cssSelector("#recommended-item-carousel .item.active .col-sm-4:first-child a");
+    private By recommendationSection = By.id("recommended-item-carousel");
+    private By recommendationSectionTItle = By.cssSelector(".recommended_items .title");
     //Constructor
 
     //Actions
@@ -60,6 +62,18 @@ public class HomePage {
         return this;
     }
 
+    public HomePage goToRecommendationSection(){
+        AdvertismentPages.closeAdsIfAny();
+        ElementActions.scrollToElement(recommendationSection);
+        return this;
+    }
+
+    public HomePage clickFirstRecommProductInCart(){
+        AdvertismentPages.closeAdsIfAny();
+        ElementActions.Click(firstRecomAddToCart);
+        return this;
+    }
+
 
     //Validation
     @Step("Validate that Home Page is Visible")
@@ -86,6 +100,13 @@ public class HomePage {
     public HomePage assertOnSubscriptionSucessMessage(String successMessage){
         AdvertismentPages.closeAdsIfAny();
         Assert.assertTrue(ElementActions.getText(SuccessSubscriptionAllert).contains(successMessage));
+        return this;
+    }
+
+    @Step("Verify recommendation section title")
+    public HomePage assertOnRecomSectionTitle(String Title){
+        AdvertismentPages.closeAdsIfAny();
+        Assert.assertTrue(ElementActions.getText(recommendationSectionTItle).toLowerCase().contains(Title));
         return this;
     }
 }

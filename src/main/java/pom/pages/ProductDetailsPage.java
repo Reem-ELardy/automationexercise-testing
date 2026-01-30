@@ -22,7 +22,9 @@ public class ProductDetailsPage {
     private By productCondition = By.xpath("//div[@class = 'product-information']//b[text()='Condition:']/parent::p");
     private By productBrand = By.xpath("//div[@class = 'product-information']//b[text()='Brand:']/parent::p");
     private By productPrice = By.xpath("//div[@class = 'product-information']/span/span");
+    private By quantityField = By.id("quantity");
     private By addToCartButton = By.cssSelector(".btn.btn-default.cart");
+
 
     //Constructor
 
@@ -34,6 +36,20 @@ public class ProductDetailsPage {
         ElementActions.Type(reviewEmailField, email);
         ElementActions.Type(reviewMessageField, reviewMessage);
         ElementActions.Click(submitReviewButton);
+        return this;
+    }
+
+    @Step("Change product quantity to")
+    public ProductDetailsPage ChangeQuantity(String quantity) {
+        AdvertismentPages.closeAdsIfAny();
+        ElementActions.Type(quantityField, quantity);
+        return this;
+    }
+
+    @Step("Click 'Add to Cart' button")
+    public ProductDetailsPage addToCart(){
+        AdvertismentPages.closeAdsIfAny();
+        ElementActions.Click(addToCartButton);
         return this;
     }
 
