@@ -1,0 +1,59 @@
+{
+  "AccountCreatedPageTitle": "ACCOUNT CREATED!",
+  "CheckoutPage" : {
+    "AddressDetailsTitle" : "Address Details",
+    "InvoiceDetailsTitle" : "Review Your Order",
+    "CommentMessage" : "Please deliver between 9 AM - 5 PM"
+  },
+  "PaymentPage" : {
+    "Title": "Payment"
+  },
+  "CardData": {
+    "Name": "Amira Patel",
+    "CardNumber": "4111111111111111",
+    "CVC": "123",
+    "Month": "12",
+    "Year": "2026"
+  },
+  "PaymentDonePage": {
+    "Title" : "Order Placed!",
+    "CongratsMessage" : "Congratulations! Your order has been confirmed!"
+  },
+  "RegisterTestData": {
+    "username": "Amira14",
+    "title": "Mrs",
+    "password": "Amira@1234Unique",
+    "day": "10",
+    "month": "7",
+    "year": "1992",
+    "firstName": "Amira",
+    "lastName": "Patel",
+    "company": "AmiraTech14",
+    "mobileNumber": "+91 9876500014",
+    "address": "789 Garden Avenue",
+    "address2": "Floor 3",
+    "country": "India",
+    "state": "Maharashtra",
+    "city": "Mumbai",
+    "zipCode": "400001"
+  },
+  "TC16_userTestData": {
+    "username": "Amira99",
+    "email": "amira99.@example.com",
+    "title": "Mrs",
+    "password": "Amira@1234Unique99",
+    "day": "13",
+    "month": "10",
+    "year": "1995",
+    "firstName": "Amira",
+    "lastName": "Patel",
+    "company": "AmiraTech99",
+    "mobileNumber": "+91 9876500099",
+    "address": "792 Garden Avenue",
+    "address2": "Floor 6",
+    "country": "India",
+    "state": "Maharashtra",
+    "city": "Mumbai",
+    "zipCode": "400004"
+  }
+}
