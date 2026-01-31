@@ -83,6 +83,13 @@ public class CartPage {
         return this;
     }
 
+    @Step("Click On Proceed To Payment")
+    public CartPage clickOnProceedToCheckout(){
+        AdvertismentPages.closeAdsIfAny();
+        ElementActions.Click(checkoutButton);
+        return this;
+    }
+
     //Validation
     @Step("Verify that subscription success message is displayed")
     public CartPage assertOnSubscriptionSucessMessage(String successMessage){
