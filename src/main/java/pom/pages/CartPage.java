@@ -159,7 +159,6 @@ public class CartPage {
         AdvertismentPages.closeAdsIfAny();
         List<String> allProductNames = ElementActions.getTexts(ProductName);
         for(String name : allProductNames) {
-            System.out.println(name);
             Assert.assertTrue(name.toLowerCase().contains(searchText.toLowerCase()));
         }
         return this;
