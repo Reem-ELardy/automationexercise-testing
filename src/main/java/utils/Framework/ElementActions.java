@@ -125,6 +125,11 @@ public class ElementActions {
         actions.scrollToElement(getElement(elementLocator)).perform();
     }
 
+    public static void scrollToWebElement(WebElement element) {
+        Actions actions = new Actions(DriverFactory.getDriver());
+        actions.scrollToElement(element).perform();
+    }
+
     public static void HoverOnElement(By elementLocator) {
         Actions actions = new Actions(DriverFactory.getDriver());
         actions.moveToElement(getElement(elementLocator)).perform();

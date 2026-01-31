@@ -56,6 +56,7 @@ public class SignUpLoginPage {
     @Step("Assert On Login Form Title")
     public SignUpLoginPage assertLoginFormTitle(String title) {
         AdvertismentPages.closeAdsIfAny();
+        ElementActions.scrollToElement(LoginFormTitle);
         Assert.assertEquals(ElementActions.getText(LoginFormTitle), title);
         return this;
     }
@@ -69,6 +70,7 @@ public class SignUpLoginPage {
     @Step("Assert On SignUp Form Title")
     public SignUpLoginPage assertSignupFormTitle(String title) {
         AdvertismentPages.closeAdsIfAny();
+        ElementActions.scrollToElement(SignUpFormTitle);
         Assert.assertEquals(ElementActions.getText(SignUpFormTitle), title);
         return this;
     }

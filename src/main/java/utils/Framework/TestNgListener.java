@@ -5,14 +5,17 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.*;
+import utils.HelperFunctions.AllureHelperFunction;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
 
 public class TestNgListener implements ISuiteListener, ITestListener, IInvokedMethodListener, IExecutionListener {
 
+    //Before/After Full Execution
     @Override
     public void onExecutionStart() {
+        System.out.println("=============================================== BEGIN ====================================");
         System.out.println("We are starting our execution from here");
         PropertiesReader.loadProperties();
     }
@@ -20,6 +23,7 @@ public class TestNgListener implements ISuiteListener, ITestListener, IInvokedMe
     @Override
     public void onExecutionFinish() {
         System.out.println("Execution is finished ... Thank you !.. ");
+        System.out.println("=============================================== END ====================================");
         try {
             // Generate report
             String[] generateCmd = {"cmd.exe", "/c", "mvn allure:report"};
@@ -44,6 +48,40 @@ public class TestNgListener implements ISuiteListener, ITestListener, IInvokedMe
         }
     }
 
+    //Before/After Suite
+    @Override
+    public void onStart(ISuite suite) {
+        System.out.println("===============================================START SUITE====================================");
+        System.out.println("[SUITE START] " + suite.getName());
+    }
+
+    @Override
+    public void onFinish(ISuite suite) {
+        System.out.println("[SUITE FINISH] " + suite.getName());
+        System.out.println("===============================================END SUITE====================================");
+
+    }
+
+    //Before/After Methods
+    @Override
+    public void beforeInvocation(IInvokedMethod method, ITestResult testResult) {
+        if (method.isTestMethod()) {
+            if (ITestResult.FAILURE == testResult.getStatus()) {
+                AllureHelperFunction.takeScreenshot(testResult);
+            }
+        }
+    }
+
+    @Override
+    public void afterInvocation(IInvokedMethod method, ITestResult testResult) {
+        if (method.isTestMethod()) {
+            if (ITestResult.FAILURE == testResult.getStatus()) {
+                AllureHelperFunction.takeScreenshot(testResult);
+            }
+        }
+    }
+
+    //Test Case Listeners
     @Override
     public void onTestStart(ITestResult result) {
         System.out.println("[INFO] Starting test: " + result.getName());
@@ -57,27 +95,9 @@ public class TestNgListener implements ISuiteListener, ITestListener, IInvokedMe
     @Override
     public void onTestFailure(ITestResult result) {
         System.out.println("[FAIL] Test failed: " + result.getName());
-
         WebDriver driver = DriverFactory.getDriver();
         if (driver != null) {
-            try {
-                byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-                Allure.addAttachment("Failure Screenshot", new ByteArrayInputStream(screenshot));
-                System.out.println("[INFO] Screenshot captured for failed test: " + result.getName());
-            } catch (Exception e) {
-                System.out.println("[ERROR] Failed to capture screenshot for test: " + result.getName());
-                e.printStackTrace();
-            }
-        }
-    }
-
-
-    @Override
-    public void afterInvocation(IInvokedMethod method, ITestResult testResult) {
-        WebDriver driver = DriverFactory.getDriver();
-        if (ITestResult.FAILURE == testResult.getStatus() && driver != null) {
-            byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-            Allure.addAttachment("Failure Screenshot", new ByteArrayInputStream(screenshot));
+            AllureHelperFunction.takeScreenshot(result);
         }
     }
 

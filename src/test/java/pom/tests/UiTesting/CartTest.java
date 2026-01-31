@@ -113,10 +113,9 @@ public class CartTest {
 
         new SignUpLoginPage()
                 .login(testDataManager.getData("userTestDataNew.email"), testDataManager.getData("userTestDataNew.password"));
-
         new Dashboard()
+                .assertOnLoggedInAs(testDataManager.getData("userTestDataNew.username"))
                 .clickCartButton();
-
         new CartPage()
                 .verifyProductsAreAdded()
                 .verifyProductsInCartRelatedToSearch(testDataManager.getData("searchText"));

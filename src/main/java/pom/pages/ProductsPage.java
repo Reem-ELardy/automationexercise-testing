@@ -20,6 +20,7 @@ public class ProductsPage {
     private By searchButton = By.id("submit_search");
     private By ProductsName = By.cssSelector(".productinfo  p");
     private By ProductsAddToCart = By.cssSelector("div.productinfo a");
+    private By ProductsAddToCartHover = By.cssSelector("div.product-overlay a");
 
     private By FirstProductDiv = By.xpath("(//div[@class='product-image-wrapper'])[1]");
     private By addToCartFirstProductHover = By.cssSelector("div.product-overlay a[data-product-id='1']");
@@ -52,6 +53,7 @@ public class ProductsPage {
     public ProductsPage FirstProductAddTOCart() {
         AdvertismentPages.closeAdsIfAny();
         ElementActions.HoverOnElement(FirstProductDiv);
+        ElementActions.scrollToElement(addToCartFirstProductHover);
         ElementActions.Click(addToCartFirstProductHover);
         return this;
     }
@@ -60,7 +62,21 @@ public class ProductsPage {
     public ProductsPage SecondProductAddTOCart() {
         AdvertismentPages.closeAdsIfAny();
         ElementActions.HoverOnElement(SecondProductDiv);
+        ElementActions.scrollToElement(addToCartSecondProductHover);
         ElementActions.Click(addToCartSecondProductHover);
+        return this;
+    }
+
+    @Step("Add all searched products to cart")
+    public ProductsPage addAllSearchedProductsToCart() {
+        AdvertismentPages.closeAdsIfAny();
+        List<WebElement> buttons = ElementActions.getElements(ProductsAddToCart);
+
+        for (WebElement button : buttons) {
+            ElementActions.scrollToWebElement(button);
+            button.click();
+            new AddedToCartAllert().clickOnContinueShopping();
+        }
         return this;
     }
 
@@ -95,19 +111,6 @@ public class ProductsPage {
         for(String name : allProductNames) {
             Assert.assertTrue(name.toLowerCase().contains(searchText.toLowerCase()));
         }
-        return this;
-    }
-
-    @Step("Add all searched products to cart")
-    public ProductsPage addAllSearchedProductsToCart() {
-        AdvertismentPages.closeAdsIfAny();
-        List<WebElement> buttons = ElementActions.getElements(ProductsAddToCart);
-
-        for (WebElement button : buttons) {
-            button.click();
-            new AddedToCartAllert().clickOnContinueShopping();
-        }
-
         return this;
     }
 
