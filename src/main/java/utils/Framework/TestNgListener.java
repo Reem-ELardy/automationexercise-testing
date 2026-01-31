@@ -55,6 +55,24 @@ public class TestNgListener implements ISuiteListener, ITestListener, IInvokedMe
     }
 
     @Override
+    public void onTestFailure(ITestResult result) {
+        System.out.println("[FAIL] Test failed: " + result.getName());
+
+        WebDriver driver = DriverFactory.getDriver();
+        if (driver != null) {
+            try {
+                byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+                Allure.addAttachment("Failure Screenshot", new ByteArrayInputStream(screenshot));
+                System.out.println("[INFO] Screenshot captured for failed test: " + result.getName());
+            } catch (Exception e) {
+                System.out.println("[ERROR] Failed to capture screenshot for test: " + result.getName());
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+    @Override
     public void afterInvocation(IInvokedMethod method, ITestResult testResult) {
         WebDriver driver = DriverFactory.getDriver();
         if (ITestResult.FAILURE == testResult.getStatus() && driver != null) {

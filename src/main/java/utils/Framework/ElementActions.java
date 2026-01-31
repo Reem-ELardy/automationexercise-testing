@@ -148,9 +148,9 @@ public class ElementActions {
     public static boolean isElementInvisible(By locator) {
         try {
             Waits.explicitWaitToBeInvisibile(locator);
-            return true; // element became invisible or removed
+            return true;
         } catch (Exception e) {
-            return false; // element still visible or wait timed out
+            return false;
         }
     }
 
