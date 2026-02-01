@@ -27,5 +27,8 @@
   "DeleteAfterCreation" : {
     "email": "omar.hassan@example.com",
     "password": "Omar@9876"
+  },
+  "MessageData": {
+    "FailUpdateNotFound" : "Account not found with this email, try another email!"
   }
 }

@@ -31,5 +31,9 @@
   "DeleteAfterCreation": {
     "email": "rahul@example.com",
     "password": "Rahul@1234"
+  },
+  "MessageData": {
+    "SuccessUpdate" : "User updated!",
+    "FailUpdateNotFound" : "Account not found!"
   }
 }

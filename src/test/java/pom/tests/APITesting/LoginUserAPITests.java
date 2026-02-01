@@ -24,7 +24,7 @@ public class LoginUserAPITests {
     public void API10_PostToVerifyLoginWithValidDetails() {
         Response response = APICallsUtils.postRequest(APIEndpoints.VERIFY_LOGIN, apiTestDataManager.getTestDataMap("LoginWithValidData"));
         Assert.assertEquals(response.jsonPath().getInt("responseCode"), 200);
-        Assert.assertEquals(response.jsonPath().getString("message"), "User exists!");
+        Assert.assertEquals(response.jsonPath().getString("message"), apiTestDataManager.getData("MessageData.SuccessLogin"));
     }
 
     @Test
@@ -34,7 +34,7 @@ public class LoginUserAPITests {
     public void API11_PostToVerifyLoginWithInvalidDetails() {
         Response response = APICallsUtils.postRequest(APIEndpoints.VERIFY_LOGIN, apiTestDataManager.getTestDataMap("LoginWithInvalidData"));
         Assert.assertEquals(response.jsonPath().getInt("responseCode"), 404);
-        Assert.assertEquals(response.jsonPath().getString("message"), "User not found!");
+        Assert.assertEquals(response.jsonPath().getString("message"), apiTestDataManager.getData("MessageData.FailLoginNotFound"));
     }
 
     @Test
@@ -44,7 +44,7 @@ public class LoginUserAPITests {
     public void API12_PostToVerifyLoginWithoutEmailParameter() {
         Response response = APICallsUtils.postRequest(APIEndpoints.VERIFY_LOGIN, apiTestDataManager.getTestDataMap("LoginWithMissingEmail"));
         Assert.assertEquals(response.jsonPath().getInt("responseCode"), 400);
-        Assert.assertEquals(response.jsonPath().getString("message"), "Bad request, email or password parameter is missing in POST request.");
+        Assert.assertEquals(response.jsonPath().getString("message"), apiTestDataManager.getData("MessageData.FailLoginMissingData"));
     }
 
     @Test
@@ -54,7 +54,7 @@ public class LoginUserAPITests {
     public void API13_DeleteToVerifyLogin() {
         Response response = APICallsUtils.deleteRequest(APIEndpoints.VERIFY_LOGIN);
         Assert.assertEquals(response.jsonPath().getInt("responseCode"), 405);
-        Assert.assertEquals(response.jsonPath().getString("message"), "This request method is not supported.");
+        Assert.assertEquals(response.jsonPath().getString("message"), apiTestDataManager.getData("MessageData.FailLoginWrongRequestMethod"));
     }
 
     @BeforeClass(description = "SetUp json file reader, Create User Account")

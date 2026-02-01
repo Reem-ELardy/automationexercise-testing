@@ -24,7 +24,7 @@ public class RegisterUserAPITests {
     public void API7_PostToCreateRegisterUserAccount() {
         Response response = APICallsUtils.postRequest(APIEndpoints.CREATE_ACCOUNT, apiTestDataManager.getTestDataMap("UserData"));
         Assert.assertEquals(response.jsonPath().getInt("responseCode"), 201);
-        Assert.assertEquals(response.jsonPath().getString("message"), "User created!");
+        Assert.assertEquals(response.jsonPath().getString("message"), apiTestDataManager.getData("MessageData.SuccessRegister"));
     }
 
     @Test
@@ -34,7 +34,7 @@ public class RegisterUserAPITests {
     public void API8_PostToCreateRegisterExistingUserAccount() {
         Response response = APICallsUtils.postRequest(APIEndpoints.CREATE_ACCOUNT, apiTestDataManager.getTestDataMap("UserData"));
         Assert.assertEquals(response.jsonPath().getInt("responseCode"), 400);
-        Assert.assertEquals(response.jsonPath().getString("message"), "Email already exists!");
+        Assert.assertEquals(response.jsonPath().getString("message"), apiTestDataManager.getData("MessageData.FailRegisterAccountExist"));
     }
 
     @Test
@@ -44,7 +44,7 @@ public class RegisterUserAPITests {
     public void API9_PostToCreateRegisterUserAccountWithMissingRequiredData() {
         Response response = APICallsUtils.postRequest(APIEndpoints.CREATE_ACCOUNT, apiTestDataManager.getTestDataMap("UserDataWithMissingName"));
         Assert.assertEquals(response.jsonPath().getInt("responseCode"), 400);
-        Assert.assertEquals(response.jsonPath().getString("message"), "Bad request, name parameter is missing in POST request.");
+        Assert.assertEquals(response.jsonPath().getString("message"), apiTestDataManager.getData("MessageData.FailRegisterMissingData"));
 
     }
 

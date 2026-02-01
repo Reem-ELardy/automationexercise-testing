@@ -32,6 +32,12 @@
   "DeleteAfterCreation" : {
     "email": "sara@example.com",
     "password": "Sara@1234"
+  },
+  "MessageData": {
+    "SuccessLogin" : "User exists!",
+    "FailLoginNotFound" : "User not found!",
+    "FailLoginMissingData" : "Bad request, email or password parameter is missing in POST request.",
+    "FailLoginWrongRequestMethod" : "This request method is not supported."
   }
 }
 

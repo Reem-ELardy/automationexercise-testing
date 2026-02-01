@@ -42,7 +42,7 @@ public class GetUserAPITests {
     public void API17_GetUserAccountDetailByInvalidEmail() {
         Response response = APICallsUtils.getRequest(APIEndpoints.GET_USER_BY_EMAIL, apiTestDataManager.getTestDataMap("GetUserInvalidData"));
         Assert.assertEquals(response.jsonPath().getInt("responseCode"), 404);
-        Assert.assertEquals(response.jsonPath().getString("message"), "Account not found with this email, try another email!");
+        Assert.assertEquals(response.jsonPath().getString("message"), apiTestDataManager.getData("MessageData.FailUpdateNotFound"));
     }
 
     @BeforeClass(description = "SetUp json file reader, Create User Account")

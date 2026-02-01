@@ -39,5 +39,10 @@
   "DeleteAfterCreation": {
     "email": "mazin@gmail.com",
     "password": "Mazin@123"
+  },
+  "MessageData": {
+    "SuccessRegister" : "User created!",
+    "FailRegisterAccountExist" : "Email already exists!",
+    "FailRegisterMissingData" : "Bad request, name parameter is missing in POST request."
   }
 }

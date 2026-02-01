@@ -28,5 +28,10 @@
     "state": "Karnataka",
     "city": "Bangalore",
     "zipcode": "560001"
+  },
+  "MessageData": {
+    "SuccessDelete" : "Account deleted!",
+    "FailDeleteNotFound" : "Account not found!",
+    "FailDeleteMissingData" : "Bad request, email parameter is missing in DELETE request."
   }
 }
