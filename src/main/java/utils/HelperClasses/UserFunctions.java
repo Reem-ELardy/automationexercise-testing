@@ -1,4 +1,4 @@
-package utils.HelperFunctions;
+package utils.HelperClasses;
 
 import pom.pages.*;
 import utils.Framework.JsonFileReader;

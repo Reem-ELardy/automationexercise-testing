@@ -5,7 +5,6 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 import utils.Framework.AlertHandler;
 import utils.Framework.ElementActions;
-import utils.HelperFunctions.UserFunctions;
 
 import java.nio.file.Paths;
 

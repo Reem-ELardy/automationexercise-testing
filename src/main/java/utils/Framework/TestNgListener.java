@@ -1,13 +1,9 @@
 package utils.Framework;
 
-import io.qameta.allure.Allure;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.*;
-import utils.HelperFunctions.AllureHelperFunction;
+import utils.HelperClasses.AllureHelperFunction;
 
-import java.io.ByteArrayInputStream;
 import java.io.File;
 
 public class TestNgListener implements ISuiteListener, ITestListener, IInvokedMethodListener, IExecutionListener {

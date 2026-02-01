@@ -1,4 +1,4 @@
-package utils.HelperFunctions;
+package utils.HelperClasses;
 
 import io.qameta.allure.Allure;
 import org.openqa.selenium.OutputType;
