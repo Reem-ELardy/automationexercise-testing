@@ -1,0 +1,35 @@
+{
+  "RegisterFirstUserData": {
+    "name": "Sara",
+    "email": "sara@example.com",
+    "title": "Mrs",
+    "password": "Sara@1234",
+    "birth_date": "5",
+    "birth_month": "3",
+    "birth_year": "1988",
+    "firstname": "Sara",
+    "lastname": "Shah",
+    "company": "Shah Enterprises",
+    "mobile_number": "+91 9876543211",
+    "address1": "12 Church Street",
+    "address2": "Flat 3B",
+    "country": "India",
+    "state": "Maharashtra",
+    "city": "Pune",
+    "zipcode": "411001"
+  },
+  "LoginWithValidData" : {
+    "email": "sara@example.com",
+    "password": "Sara@1234"
+  },
+  "LoginWithInvalidData" : {
+    "email": "sara@example.com",
+    "password": "Sara@12345"
+  },
+  "LoginWithMissingEmail" : {
+    "password": "Sara@1234"
+  }
+
+}
+
+
