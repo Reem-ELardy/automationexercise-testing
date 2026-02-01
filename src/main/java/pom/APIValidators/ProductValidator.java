@@ -1,5 +1,6 @@
 package pom.APIValidators;
 
+import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import org.testng.Assert;
 
@@ -7,6 +8,8 @@ import java.util.List;
 import java.util.Map;
 
 public class ProductValidator {
+
+    @Step("Validate the list of products in the response")
     public static void validateProductsList(Response response) {
         List<Map<String, Object>> products = response.jsonPath().getList("products");
         Assert.assertFalse(products.isEmpty());
@@ -15,6 +18,7 @@ public class ProductValidator {
         }
     }
 
+    @Step("Validate a single product")
     private static void validateSingleProduct(Response response, Map<String, Object> product, int index) {
         Assert.assertNotNull(product.get("id"));
         Assert.assertNotNull(product.get("name"));
@@ -27,6 +31,7 @@ public class ProductValidator {
         Assert.assertFalse(response.jsonPath().getString("products[" + index + "].category.category").isEmpty());
     }
 
+    @Step("Validate products match the search text")
     public static void validateSearchMatch(Response response, String searchText) {
         List<Map<String, Object>> products = response.jsonPath().getList("products");
         for (Map<String, Object> product : products) {
@@ -34,6 +39,7 @@ public class ProductValidator {
         }
     }
 
+    @Step("Validate a single product matches the search text")
     public static void validateSingleSearchMatch(Map<String, Object> product, String searchText) {
         String normalizedSearch = searchText.toLowerCase();
         String name = product.get("name").toString().toLowerCase().replaceAll("[^a-z0-9]", "");
