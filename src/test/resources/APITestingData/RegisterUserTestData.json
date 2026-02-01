@@ -1,0 +1,43 @@
+{
+  "UserData": {
+    "name": "Mazin",
+    "email": "mazin@gmail.com",
+    "password": "Mazin@123",
+    "title": "Mr",
+    "birth_date": "15",
+    "birth_month": "12",
+    "birth_year": "1999",
+    "firstname": "Mazin",
+    "lastname": "Younis",
+    "company": "MazinTech",
+    "address1": "129 MG Road",
+    "address2": "Apt 48",
+    "country": "India",
+    "zipcode": "400005",
+    "state": "Maharashtra",
+    "city": "Mumbai",
+    "mobile_number": "+91 9876573220"
+  },
+  "UserDataWithMissingName": {
+    "email": "mazin@gmail.com",
+    "password": "Mazin@123",
+    "title": "Mr",
+    "birth_date": "15",
+    "birth_month": "12",
+    "birth_year": "1999",
+    "firstname": "Mazin",
+    "lastname": "Younis",
+    "company": "MazinTech",
+    "address1": "129 MG Road",
+    "address2": "Apt 48",
+    "country": "India",
+    "zipcode": "400005",
+    "state": "Maharashtra",
+    "city": "Mumbai",
+    "mobile_number": "+91 9876573220"
+  },
+  "DeleteAfterCreation": {
+    "email": "mazin@gmail.com",
+    "password": "Mazin@123"
+  }
+}
