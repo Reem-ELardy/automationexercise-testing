@@ -1,7 +1,9 @@
 <suite name="MasterSuite">
     <suite-files>
         <suite-file path="APITestCasesRunner.xml"/>
+        <suite-file path="UIWithAPITestCasesRunner.xml"/>
         <suite-file path="UITestCasesRunner.xml"/>
     </suite-files>
 </suite>
+
 
