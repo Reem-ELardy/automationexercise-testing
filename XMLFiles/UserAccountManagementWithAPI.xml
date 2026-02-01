@@ -1,0 +1,27 @@
+<suite name="User Management With API">
+
+    <test name="Register User Tests">
+        <classes>
+            <class name="pom.tests.E2ETesting.RegisterUserE2ETest"/>
+        </classes>
+    </test>
+
+    <test name="Login Tests">
+        <classes>
+            <class name="pom.tests.E2ETesting.LoginUserE2ETest"/>
+        </classes>
+    </test>
+
+    <test name="Logout Test">
+        <classes>
+            <class name="pom.tests.E2ETesting.LogoutUserE2ETest"/>
+        </classes>
+    </test>
+
+    <test name="Delete Account Test">
+        <classes>
+            <class name="pom.tests.E2ETesting.AccountManagementE2ETest"/>
+        </classes>
+    </test>
+
+</suite>
