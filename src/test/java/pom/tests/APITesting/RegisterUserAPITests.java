@@ -2,11 +2,11 @@ package pom.tests.APITesting;
 
 import io.qameta.allure.*;
 import io.restassured.response.Response;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import pom.APIValidators.ResponseValidator;
 import utils.Framework.APICallsUtils;
 import utils.Framework.JsonFileReader;
 import utils.Framework.TestNgListener;
@@ -23,8 +23,8 @@ public class RegisterUserAPITests {
     @Severity(SeverityLevel.CRITICAL)
     public void API7_PostToCreateRegisterUserAccount() {
         Response response = APICallsUtils.postRequest(APIEndpoints.CREATE_ACCOUNT, apiTestDataManager.getTestDataMap("UserData"));
-        Assert.assertEquals(response.jsonPath().getInt("responseCode"), 201);
-        Assert.assertEquals(response.jsonPath().getString("message"), apiTestDataManager.getData("MessageData.SuccessRegister"));
+        ResponseValidator.validateResponseCode(response, 201);
+        ResponseValidator.validateMessage(response, apiTestDataManager.getData("MessageData.SuccessRegister"));
     }
 
     @Test
@@ -33,8 +33,8 @@ public class RegisterUserAPITests {
     @Severity(SeverityLevel.CRITICAL)
     public void API8_PostToCreateRegisterExistingUserAccount() {
         Response response = APICallsUtils.postRequest(APIEndpoints.CREATE_ACCOUNT, apiTestDataManager.getTestDataMap("UserData"));
-        Assert.assertEquals(response.jsonPath().getInt("responseCode"), 400);
-        Assert.assertEquals(response.jsonPath().getString("message"), apiTestDataManager.getData("MessageData.FailRegisterAccountExist"));
+        ResponseValidator.validateResponseCode(response, 400);
+        ResponseValidator.validateMessage(response, apiTestDataManager.getData("MessageData.FailRegisterAccountExist"));
     }
 
     @Test
@@ -43,9 +43,8 @@ public class RegisterUserAPITests {
     @Severity(SeverityLevel.CRITICAL)
     public void API9_PostToCreateRegisterUserAccountWithMissingRequiredData() {
         Response response = APICallsUtils.postRequest(APIEndpoints.CREATE_ACCOUNT, apiTestDataManager.getTestDataMap("UserDataWithMissingName"));
-        Assert.assertEquals(response.jsonPath().getInt("responseCode"), 400);
-        Assert.assertEquals(response.jsonPath().getString("message"), apiTestDataManager.getData("MessageData.FailRegisterMissingData"));
-
+        ResponseValidator.validateResponseCode(response, 400);
+        ResponseValidator.validateMessage(response, apiTestDataManager.getData("MessageData.FailRegisterMissingData"));
     }
 
     @BeforeClass(description = "SetUp json file reader")

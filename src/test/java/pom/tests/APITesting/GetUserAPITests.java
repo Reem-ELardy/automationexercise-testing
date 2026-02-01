@@ -1,11 +1,12 @@
 package pom.tests.APITesting;
 
 import io.qameta.allure.*;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import pom.APIValidators.ResponseValidator;
+import pom.APIValidators.UserValidator;
 import utils.Framework.APICallsUtils;
 import utils.Framework.JsonFileReader;
 import utils.Framework.TestNgListener;
@@ -25,14 +26,9 @@ public class GetUserAPITests {
     @Severity(SeverityLevel.CRITICAL)
     public void API16_GetUserAccountDetailByEmail() {
         Response response = APICallsUtils.getRequest(APIEndpoints.GET_USER_BY_EMAIL, apiTestDataManager.getTestDataMap("GetUserData"));
-        Assert.assertEquals(response.jsonPath().getInt("responseCode"), 200);
-        Assert.assertFalse(response.jsonPath().getString("user").isEmpty());
-        Assert.assertFalse(response.jsonPath().getString("user.id").isEmpty());
-
-        Map<String, String> fieldMapping = APIEndpoints.REGISTER_TO_GET_USER_FIELD_MAPPING;
-        for (Map.Entry<String, String> entry : fieldMapping.entrySet()) {
-            Assert.assertEquals(response.jsonPath().get("user." + entry.getKey()), apiTestDataManager.getData("RegisterFirstUserData."+ entry.getValue()));
-        }
+        ResponseValidator.validateResponseCode(response, 200);
+        UserValidator.validateUserExists(response);
+        UserValidator.validateUserDataInGetAgainstRegisteredData(response, apiTestDataManager, "RegisterFirstUserData");
     }
 
     @Test
@@ -41,8 +37,7 @@ public class GetUserAPITests {
     @Severity(SeverityLevel.CRITICAL)
     public void API17_GetUserAccountDetailByInvalidEmail() {
         Response response = APICallsUtils.getRequest(APIEndpoints.GET_USER_BY_EMAIL, apiTestDataManager.getTestDataMap("GetUserInvalidData"));
-        Assert.assertEquals(response.jsonPath().getInt("responseCode"), 404);
-        Assert.assertEquals(response.jsonPath().getString("message"), apiTestDataManager.getData("MessageData.FailUpdateNotFound"));
+        ResponseValidator.validateResponseCode(response, 404);
     }
 
     @BeforeClass(description = "SetUp json file reader, Create User Account")

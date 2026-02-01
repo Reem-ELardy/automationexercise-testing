@@ -2,11 +2,11 @@ package pom.tests.APITesting;
 
 import io.qameta.allure.*;
 import io.restassured.response.Response;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import pom.APIValidators.ResponseValidator;
 import utils.Framework.APICallsUtils;
 import utils.Framework.JsonFileReader;
 import utils.Framework.TestNgListener;
@@ -23,8 +23,8 @@ public class UpdateUserAPITests {
     @Severity(SeverityLevel.CRITICAL)
     public void API14_PutToUpdateUserAccountWithValidCredentials() {
         Response response = APICallsUtils.putRequest(APIEndpoints.UPDATE_ACCOUNT, apiTestDataManager.getTestDataMap("UpdateUserValidData"));
-        Assert.assertEquals(response.jsonPath().getInt("responseCode"), 200);
-        Assert.assertEquals(response.jsonPath().getString("message"), apiTestDataManager.getData("MessageData.SuccessUpdate"));
+        ResponseValidator.validateResponseCode(response, 200);
+        ResponseValidator.validateMessage(response, apiTestDataManager.getData("MessageData.SuccessUpdate"));
     }
 
     @Test
@@ -33,8 +33,8 @@ public class UpdateUserAPITests {
     @Severity(SeverityLevel.CRITICAL)
     public void API15_PutToUpdateUserAccountWithInvalidCredentials() {
         Response response = APICallsUtils.putRequest(APIEndpoints.UPDATE_ACCOUNT, apiTestDataManager.getTestDataMap("UpdateUserInvalidData"));
-        Assert.assertEquals(response.jsonPath().getInt("responseCode"), 404);
-        Assert.assertEquals(response.jsonPath().getString("message"), apiTestDataManager.getData("MessageData.FailUpdateNotFound"));
+        ResponseValidator.validateResponseCode(response, 404);
+        ResponseValidator.validateMessage(response, apiTestDataManager.getData("MessageData.FailUpdateNotFound"));
     }
 
     @BeforeClass(description = "SetUp json file reader, Create User Account")

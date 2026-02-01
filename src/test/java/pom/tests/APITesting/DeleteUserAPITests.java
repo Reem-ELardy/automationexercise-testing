@@ -2,10 +2,10 @@ package pom.tests.APITesting;
 
 import io.qameta.allure.*;
 import io.restassured.response.Response;
-import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import pom.APIValidators.ResponseValidator;
 import utils.Framework.APICallsUtils;
 import utils.Framework.JsonFileReader;
 import utils.Framework.TestNgListener;
@@ -22,8 +22,8 @@ public class DeleteUserAPITests {
     @Severity(SeverityLevel.CRITICAL)
     public void API18_DeleteUserAccountWithValidCredentials() {
         Response response = APICallsUtils.deleteRequest(APIEndpoints.DELETE_ACCOUNT, apiTestDataManager.getTestDataMap("UserData"));
-        Assert.assertEquals(response.jsonPath().getInt("responseCode"), 200);
-        Assert.assertEquals(response.jsonPath().getString("message"), apiTestDataManager.getData("MessageData.SuccessDelete"));
+        ResponseValidator.validateResponseCode(response, 200);
+        ResponseValidator.validateMessage(response, apiTestDataManager.getData("MessageData.SuccessDelete"));
     }
 
     @Test
@@ -32,8 +32,8 @@ public class DeleteUserAPITests {
     @Severity(SeverityLevel.CRITICAL)
     public void API19_DeleteUserAccountWithInvalidCredentials() {
         Response response = APICallsUtils.deleteRequest(APIEndpoints.DELETE_ACCOUNT, apiTestDataManager.getTestDataMap("UserDataInvalidPassword"));
-        Assert.assertEquals(response.jsonPath().getInt("responseCode"), 404);
-        Assert.assertEquals(response.jsonPath().getString("message"), apiTestDataManager.getData("MessageData.FailDeleteNotFound"));
+        ResponseValidator.validateResponseCode(response, 404);
+        ResponseValidator.validateMessage(response, apiTestDataManager.getData("MessageData.FailDeleteNotFound"));
     }
 
     @Test
@@ -42,8 +42,8 @@ public class DeleteUserAPITests {
     @Severity(SeverityLevel.CRITICAL)
     public void API20_DeleteUserAccountWithMissingEmail() {
         Response response = APICallsUtils.deleteRequest(APIEndpoints.DELETE_ACCOUNT, apiTestDataManager.getTestDataMap("UserDataWithMissingEmail"));
-        Assert.assertEquals(response.jsonPath().getInt("responseCode"), 400);
-        Assert.assertEquals(response.jsonPath().getString("message"), apiTestDataManager.getData("MessageData.FailDeleteMissingData"));
+        ResponseValidator.validateResponseCode(response, 400);
+        ResponseValidator.validateMessage(response, apiTestDataManager.getData("MessageData.FailDeleteMissingData"));
     }
 
     @BeforeClass(description = "SetUp json file reader, Create User Account")

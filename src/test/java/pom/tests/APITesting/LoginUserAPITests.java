@@ -2,11 +2,11 @@ package pom.tests.APITesting;
 
 import io.qameta.allure.*;
 import io.restassured.response.Response;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import pom.APIValidators.ResponseValidator;
 import utils.Framework.APICallsUtils;
 import utils.Framework.JsonFileReader;
 import utils.Framework.TestNgListener;
@@ -23,8 +23,8 @@ public class LoginUserAPITests {
     @Severity(SeverityLevel.CRITICAL)
     public void API10_PostToVerifyLoginWithValidDetails() {
         Response response = APICallsUtils.postRequest(APIEndpoints.VERIFY_LOGIN, apiTestDataManager.getTestDataMap("LoginWithValidData"));
-        Assert.assertEquals(response.jsonPath().getInt("responseCode"), 200);
-        Assert.assertEquals(response.jsonPath().getString("message"), apiTestDataManager.getData("MessageData.SuccessLogin"));
+        ResponseValidator.validateResponseCode(response, 200);
+        ResponseValidator.validateMessage(response, apiTestDataManager.getData("MessageData.SuccessLogin"));
     }
 
     @Test
@@ -33,8 +33,8 @@ public class LoginUserAPITests {
     @Severity(SeverityLevel.CRITICAL)
     public void API11_PostToVerifyLoginWithInvalidDetails() {
         Response response = APICallsUtils.postRequest(APIEndpoints.VERIFY_LOGIN, apiTestDataManager.getTestDataMap("LoginWithInvalidData"));
-        Assert.assertEquals(response.jsonPath().getInt("responseCode"), 404);
-        Assert.assertEquals(response.jsonPath().getString("message"), apiTestDataManager.getData("MessageData.FailLoginNotFound"));
+        ResponseValidator.validateResponseCode(response, 404);
+        ResponseValidator.validateMessage(response, apiTestDataManager.getData("MessageData.FailLoginNotFound"));
     }
 
     @Test
@@ -43,8 +43,8 @@ public class LoginUserAPITests {
     @Severity(SeverityLevel.CRITICAL)
     public void API12_PostToVerifyLoginWithoutEmailParameter() {
         Response response = APICallsUtils.postRequest(APIEndpoints.VERIFY_LOGIN, apiTestDataManager.getTestDataMap("LoginWithMissingEmail"));
-        Assert.assertEquals(response.jsonPath().getInt("responseCode"), 400);
-        Assert.assertEquals(response.jsonPath().getString("message"), apiTestDataManager.getData("MessageData.FailLoginMissingData"));
+        ResponseValidator.validateResponseCode(response, 400);
+        ResponseValidator.validateMessage(response, apiTestDataManager.getData("MessageData.FailLoginMissingData"));
     }
 
     @Test
@@ -53,8 +53,8 @@ public class LoginUserAPITests {
     @Severity(SeverityLevel.NORMAL)
     public void API13_DeleteToVerifyLogin() {
         Response response = APICallsUtils.deleteRequest(APIEndpoints.VERIFY_LOGIN);
-        Assert.assertEquals(response.jsonPath().getInt("responseCode"), 405);
-        Assert.assertEquals(response.jsonPath().getString("message"), apiTestDataManager.getData("MessageData.FailLoginWrongRequestMethod"));
+        ResponseValidator.validateResponseCode(response, 405);
+        ResponseValidator.validateMessage(response, apiTestDataManager.getData("MessageData.FailLoginWrongRequestMethod"));
     }
 
     @BeforeClass(description = "SetUp json file reader, Create User Account")
