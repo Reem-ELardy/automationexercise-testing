@@ -44,7 +44,7 @@ public class APICallsUtils {
                 .formParams(formParams)
                 .log().all()
         .when()
-                .delete(System.getProperty("apiUrl") + url)
+                .get(System.getProperty("apiUrl") + url)
         .then()
                 .statusCode(anyOf(is(200), is(201)))
         .and()
@@ -58,7 +58,7 @@ public class APICallsUtils {
                 .formParams(formParams)
                 .log().all()
         .when()
-                .delete(System.getProperty("apiUrl") + url)
+                .put(System.getProperty("apiUrl") + url)
         .then()
                 .statusCode(anyOf(is(200), is(201)))
         .and()
@@ -67,40 +67,40 @@ public class APICallsUtils {
 
     public static Response postRequest(String url) {
         return RestAssured
-                .given()
+        .given()
                 .contentType("application/x-www-form-urlencoded")
                 .log().all()
-                .when()
+        .when()
                 .post(System.getProperty("apiUrl") + url)
-                .then()
+        .then()
                 .statusCode(anyOf(is(200), is(201)))
-                .and()
+        .and()
                 .log().body().extract().response();
     }
 
     public static Response deleteRequest(String url) {
         return RestAssured
-                .given()
+        .given()
                 .contentType("application/x-www-form-urlencoded")
                 .log().all()
-                .when()
+        .when()
                 .delete(System.getProperty("apiUrl") + url)
-                .then()
+        .then()
                 .statusCode(anyOf(is(200), is(201)))
-                .and()
+        .and()
                 .log().body().extract().response();
     }
 
     public static Response getRequest(String url) {
         return RestAssured
-                .given()
+        .given()
                 .contentType("application/x-www-form-urlencoded")
                 .log().all()
-                .when()
-                .delete(System.getProperty("apiUrl") + url)
-                .then()
+        .when()
+                .get(System.getProperty("apiUrl") + url)
+        .then()
                 .statusCode(anyOf(is(200), is(201)))
-                .and()
+        .and()
                 .log().body().extract().response();
     }
 
@@ -110,7 +110,7 @@ public class APICallsUtils {
                 .contentType(System.getProperty("contentType"))
                 .log().all()
         .when()
-                .delete(System.getProperty("apiUrl") + url)
+                .put(System.getProperty("apiUrl") + url)
         .then()
                 .statusCode(anyOf(is(200), is(201)))
         .and()
