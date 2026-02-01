@@ -1,0 +1,35 @@
+{
+  "UpdateUserValidData": {
+    "name": "Rahule",
+    "email": "rahul@example.com",
+    "password": "Rahul@1234"
+  },
+  "UpdateUserInvalidData": {
+    "name": "Rahule",
+    "email": "rahul@example.com",
+    "password": "Rahul@12345"
+  },
+  "RegisterFirstUserData": {
+    "name": "Rahul",
+    "email": "rahul@example.com",
+    "title": "Mr",
+    "password": "Rahul@1234",
+    "birth_date": "15",
+    "birth_month": "9",
+    "birth_year": "1992",
+    "firstname": "Rahul",
+    "lastname": "Verma",
+    "company": "Verma Solutions",
+    "mobile_number": "+91 9876543212",
+    "address1": "34 MG Road",
+    "address2": "Office 5",
+    "country": "India",
+    "state": "Delhi",
+    "city": "New Delhi",
+    "zipcode": "110001"
+  },
+  "DeleteAfterCreation": {
+    "email": "rahul@example.com",
+    "password": "Rahul@1234"
+  }
+}
