@@ -1,0 +1,72 @@
+{
+  "AccountCreatedPageTitle": "ACCOUNT CREATED!",
+  "CheckoutPage" : {
+    "AddressDetailsTitle" : "Address Details",
+    "InvoiceDetailsTitle" : "Review Your Order",
+    "CommentMessage" : "Please deliver between 9 AM - 5 PM"
+  },
+  "PaymentPage" : {
+    "Title": "Payment"
+  },
+  "CardData": {
+    "Name": "Amira Patel",
+    "CardNumber": "4111111111111111",
+    "CVC": "123",
+    "Month": "12",
+    "Year": "2026"
+  },
+  "PaymentDonePage": {
+    "Title" : "Order Placed!",
+    "CongratsMessage" : "Congratulations! Your order has been confirmed!"
+  },
+  "RegisterTestData": {
+    "username": "Amira14",
+    "title": "Mrs",
+    "password": "Amira@1234Unique",
+    "day": "10",
+    "month": "7",
+    "year": "1992",
+    "firstName": "Amira",
+    "lastName": "Patel",
+    "company": "AmiraTech14",
+    "mobileNumber": "+91 9876500014",
+    "address": "789 Garden Avenue",
+    "address2": "Floor 3",
+    "country": "India",
+    "state": "Maharashtra",
+    "city": "Mumbai",
+    "zipCode": "400001"
+  },
+  "RandomEmailDataForDelete": {
+    "email": "",
+    "password": "Amira@1234Unique"
+  },
+  "userData": {
+    "username" : "Manish",
+    "email": "manish.verma@example.com",
+    "password": "Manish@7890"
+  },
+  "RegisterFirstUserData": {
+    "name": "Manish",
+    "email": "manish.verma@example.com",
+    "title": "Mr",
+    "password": "Manish@7890",
+    "birth_date": "2",
+    "birth_month": "5",
+    "birth_year": "1989",
+    "firstname": "Manish",
+    "lastname": "Verma",
+    "company": "Verma Industries",
+    "mobile_number": "+91 9988771122",
+    "address1": "56 Palm Street",
+    "address2": "",
+    "country": "India",
+    "state": "Rajasthan",
+    "city": "Jaipur",
+    "zipcode": "302001"
+  },
+  "DeleteAfterCreation" : {
+    "email": "manish.verma@example.com",
+    "password": "Manish@7890"
+  }
+}

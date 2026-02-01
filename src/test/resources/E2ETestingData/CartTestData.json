@@ -1,0 +1,39 @@
+{
+  "Quantity" : "4",
+  "RecommendationSectionTitle" : "recommended items",
+  "ProductsPageTitle": "all products",
+  "SearchedProductTitle": "searched products",
+  "NumberOfProductsAdded" : "2",
+  "NumberOfRecommendedItemsAdded" : "1",
+  "searchText": "blue",
+
+  "userData": {
+    "username" : "Kavya",
+    "email": "kavya.patel@example.com",
+    "password": "Kavya@2023"
+  },
+  "RegisterFirstUserData": {
+    "name": "Kavya",
+    "email": "kavya.patel@example.com",
+    "title": "Ms",
+    "password": "Kavya@2023",
+    "birth_date": "15",
+    "birth_month": "8",
+    "birth_year": "1993",
+    "firstname": "Kavya",
+    "lastname": "Patel",
+    "company": "Patel Solutions",
+    "mobile_number": "+91 9123467890",
+    "address1": "33 Lotus Avenue",
+    "address2": "Apt 12",
+    "country": "India",
+    "state": "Gujarat",
+    "city": "Surat",
+    "zipcode": "395001"
+  },
+  "DeleteAfterCreation" : {
+    "email": "kavya.patel@example.com",
+    "password": "Kavya@2023"
+  }
+
+}
