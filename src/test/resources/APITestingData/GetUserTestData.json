@@ -1,0 +1,31 @@
+{
+  "GetUserData": {
+    "email": "omar.hassan@example.com"
+  },
+  "GetUserInvalidData": {
+    "email": "omar.@example.com"
+  },
+  "RegisterFirstUserData": {
+    "name": "Omar",
+    "email": "omar.hassan@example.com",
+    "title": "Mr",
+    "password": "Omar@9876",
+    "birth_date": "14",
+    "birth_month": "07",
+    "birth_year": "1992",
+    "firstname": "Omar",
+    "lastname": "Hassan",
+    "company": "TechNova",
+    "mobile_number": "+20 1012345678",
+    "address1": "12 Nile Street",
+    "address2": "Floor 3",
+    "country": "Egypt",
+    "state": "Cairo",
+    "city": "Nasr City",
+    "zipcode": "11371"
+  },
+  "DeleteAfterCreation" : {
+    "email": "omar.hassan@example.com",
+    "password": "Omar@9876"
+  }
+}
