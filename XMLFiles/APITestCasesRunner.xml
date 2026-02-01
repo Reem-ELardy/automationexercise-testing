@@ -1,5 +1,17 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="API Test Cases">
+    <test name="Products API">
+        <classes>
+            <class name="pom.tests.APITesting.ProductsAPITests"/>
+        </classes>
+    </test>
+
+    <test name="Brands API">
+        <classes>
+            <class name="pom.tests.APITesting.BrandsAPITests"/>
+        </classes>
+    </test>
+
     <test name="Register User API">
         <classes>
             <class name="pom.tests.APITesting.RegisterUserAPITests"/>
@@ -11,7 +23,19 @@
             <class name="pom.tests.APITesting.LoginUserAPITests"/>
         </classes>
     </test>
-    
+
+    <test name="Update User API">
+        <classes>
+            <class name="pom.tests.APITesting.UpdateUserAPITests"/>
+        </classes>
+    </test>
+
+    <test name="Get User API">
+        <classes>
+            <class name="pom.tests.APITesting.GetUserAPITests"/>
+        </classes>
+    </test>
+
     <test name="Delete User API">
         <classes>
             <class name="pom.tests.APITesting.DeleteUserAPITests"/>
