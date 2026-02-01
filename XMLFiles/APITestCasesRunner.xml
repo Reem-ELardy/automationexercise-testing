@@ -1,0 +1,21 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="API Test Cases">
+    <test name="Register User API">
+        <classes>
+            <class name="pom.tests.APITesting.RegisterUserAPITests"/>
+        </classes>
+    </test>
+
+    <test name="Login User API">
+        <classes>
+            <class name="pom.tests.APITesting.LoginUserAPITests"/>
+        </classes>
+    </test>
+    
+    <test name="Delete User API">
+        <classes>
+            <class name="pom.tests.APITesting.DeleteUserAPITests"/>
+        </classes>
+    </test>
+
+</suite>
