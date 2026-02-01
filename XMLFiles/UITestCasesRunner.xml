@@ -1,9 +1,7 @@
-<suite name="MasterSuite">
+<suite name="UI testing">
     <suite-files>
-                <suite-file path="UserManagement.xml"/>
-                <suite-file path="ContactAndPageTests.xml"/>
-                <suite-file path="ProductsTests.xml"/>
-                <suite-file path="CartAndCheckoutTests.xml"/>
+        <suite-file path="ContactAndPageTests.xml"/>
+        <suite-file path="ProductsTests.xml"/>
     </suite-files>
 </suite>
 

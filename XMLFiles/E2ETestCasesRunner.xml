@@ -1,4 +1,4 @@
-<suite name="MasterSuite">
+<suite name="API-assisted UI End-to-End testing">
     <suite-files>
         <suite-file path="UserAccountManagementWithAPI.xml"/>
         <suite-file path="CartAndCheckoutTestsWithAPI.xml"/>

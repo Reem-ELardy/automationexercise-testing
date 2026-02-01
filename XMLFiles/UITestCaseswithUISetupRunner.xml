@@ -1,0 +1,7 @@
+<suite name="UI Tests with UI Setup">
+    <suite-files>
+        <suite-file path="UserManagement.xml"/>
+        <suite-file path="CartAndCheckoutTests.xml"/>
+    </suite-files>
+</suite>
+
