@@ -9,31 +9,7 @@ import static org.hamcrest.Matchers.is;
 import java.util.Map;
 
 public class APICallsUtils {
-    public static String postRequestAndExtract(String url, String body, String extractedData) {
-        return RestAssured
-        .given()
-                .contentType("application/x-www-form-urlencoded")
-                .body(body)
-                .log().all()
-        .when()
-                .post(url)
-        .then()
-                .log().body().extract().body().jsonPath().get(extractedData).toString();
-    }
-
-    public static Response postRequestWithBody(String url, String body) {
-        return RestAssured
-        .given()
-                .contentType("application/x-www-form-urlencoded")
-                .body(body)
-                .log().all()
-        .when()
-                .post(url)
-        .then()
-                .log().body().extract().response();
-    }
-
-    public static Response postRequestWithFormParam(String url, Map<String, Object> formParams) {
+    public static Response postRequest(String url, Map<String, Object> formParams) {
         return RestAssured
         .given()
                 .contentType("application/x-www-form-urlencoded")
@@ -47,7 +23,101 @@ public class APICallsUtils {
                 .log().body().extract().response();
     }
 
-    public static String postRequestWithPlaceholders(String url, String body, java.util.Map<String, String> placeholders) {
+    public static Response deleteRequest(String url, Map<String, Object> formParams) {
+        return RestAssured
+        .given()
+                .contentType("application/x-www-form-urlencoded")
+                .formParams(formParams)
+                .log().all()
+        .when()
+                .delete(System.getProperty("apiUrl") + url)
+        .then()
+                .statusCode(anyOf(is(200), is(201)))
+        .and()
+                .log().body().extract().response();
+    }
+
+    public static Response getRequest(String url, Map<String, Object> formParams) {
+        return RestAssured
+        .given()
+                .contentType("application/x-www-form-urlencoded")
+                .formParams(formParams)
+                .log().all()
+        .when()
+                .delete(System.getProperty("apiUrl") + url)
+        .then()
+                .statusCode(anyOf(is(200), is(201)))
+        .and()
+                .log().body().extract().response();
+    }
+
+    public static Response putRequest(String url, Map<String, Object> formParams) {
+        return RestAssured
+        .given()
+                .contentType(System.getProperty("contentType"))
+                .formParams(formParams)
+                .log().all()
+        .when()
+                .delete(System.getProperty("apiUrl") + url)
+        .then()
+                .statusCode(anyOf(is(200), is(201)))
+        .and()
+                .log().body().extract().response();
+    }
+
+    public static Response postRequest(String url) {
+        return RestAssured
+                .given()
+                .contentType("application/x-www-form-urlencoded")
+                .log().all()
+                .when()
+                .post(System.getProperty("apiUrl") + url)
+                .then()
+                .statusCode(anyOf(is(200), is(201)))
+                .and()
+                .log().body().extract().response();
+    }
+
+    public static Response deleteRequest(String url) {
+        return RestAssured
+                .given()
+                .contentType("application/x-www-form-urlencoded")
+                .log().all()
+                .when()
+                .delete(System.getProperty("apiUrl") + url)
+                .then()
+                .statusCode(anyOf(is(200), is(201)))
+                .and()
+                .log().body().extract().response();
+    }
+
+    public static Response getRequest(String url) {
+        return RestAssured
+                .given()
+                .contentType("application/x-www-form-urlencoded")
+                .log().all()
+                .when()
+                .delete(System.getProperty("apiUrl") + url)
+                .then()
+                .statusCode(anyOf(is(200), is(201)))
+                .and()
+                .log().body().extract().response();
+    }
+
+    public static Response putRequest(String url) {
+        return RestAssured
+        .given()
+                .contentType(System.getProperty("contentType"))
+                .log().all()
+        .when()
+                .delete(System.getProperty("apiUrl") + url)
+        .then()
+                .statusCode(anyOf(is(200), is(201)))
+        .and()
+                .log().body().extract().response();
+    }
+
+    public static String postRequest(String url, String body, java.util.Map<String, String> placeholders) {
         if (placeholders != null) {
             for (String key : placeholders.keySet()) {
                 body = body.replace("{" + key + "}", placeholders.get(key));
@@ -55,15 +125,45 @@ public class APICallsUtils {
         }
 
         return RestAssured
-                .given()
+        .given()
                 .contentType("application/x-www-form-urlencoded")
                 .body(body)
                 .log().all()
-                .when()
-                .post(url)
-                .then()
+        .when()
+                .post(System.getProperty("apiUrl") + url)
+        .then()
+                .statusCode(anyOf(is(200), is(201)))
+        .and()
                 .log().body()
                 .extract().asString();
+    }
+
+    public static String postRequest(String url, String body, String extractedData) {
+        return RestAssured
+        .given()
+                .contentType("application/x-www-form-urlencoded")
+                .body(body)
+                .log().all()
+        .when()
+                .post(System.getProperty("apiUrl") + url)
+        .then()
+                .statusCode(anyOf(is(200), is(201)))
+        .and()
+                .log().body().extract().body().jsonPath().get(extractedData).toString();
+    }
+
+    public static Response postRequest(String url, String body) {
+        return RestAssured
+        .given()
+                .contentType("application/x-www-form-urlencoded")
+                .body(body)
+                .log().all()
+        .when()
+                .post(System.getProperty("apiUrl") + url)
+        .then()
+                .statusCode(anyOf(is(200), is(201)))
+        .and()
+                .log().body().extract().response();
     }
 
 }
