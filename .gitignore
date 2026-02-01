@@ -35,10 +35,11 @@ build/
 ### VS Code ###
 .vscode/
 
-### Mac OS ###
-.DS_Store
 
 ### Allure ###
 .allure
 !target/allure-report/
 !target/allure-report/index.html
+
+### My Saved Reports ###
+ExecutionReports/
