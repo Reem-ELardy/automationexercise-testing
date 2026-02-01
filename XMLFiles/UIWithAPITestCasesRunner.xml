@@ -1,0 +1,7 @@
+<suite name="MasterSuite">
+    <suite-files>
+        <suite-file path="UserAccountManagementWithAPI.xml"/>
+        <suite-file path="CartAndCheckoutTestsWithAPI.xml"/>
+    </suite-files>
+</suite>
+
