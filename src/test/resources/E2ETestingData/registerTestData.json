@@ -1,0 +1,56 @@
+{
+  "userTestData": {
+    "username": "Lina",
+    "email": "lina@example.com",
+    "title": "Ms",
+    "password": "Lina@1234",
+    "day": "25",
+    "month": "12",
+    "year": "1995",
+    "firstName": "Lina",
+    "lastName": "Khan",
+    "company": "LinaCorp",
+    "mobileNumber": "+91 9123456780",
+    "address": "456 Park Street",
+    "address2": "Suite 101",
+    "country": "India",
+    "state": "Karnataka",
+    "city": "Bangalore",
+    "zipCode": "560001"
+  },
+  "userTestData2": {
+    "username": "Vikram",
+    "email": "vikram.mehta@example.com",
+    "password": "Vikram@321"
+  },
+  "AssertionData": {
+    "SignUpFormTitle": "New User Signup!",
+    "EnterAccountInfoTitle": "ENTER ACCOUNT INFORMATION",
+    "AccountCreatedPageTitle": "ACCOUNT CREATED!",
+    "AccountDeletedPageTitle": "ACCOUNT DELETED!",
+    "SignUpFormError": "Email Address already exist!"
+  },
+  "RegisterFirstUserData": {
+    "name": "Vikram",
+    "email": "vikram.mehta@example.com",
+    "title": "Mr",
+    "password": "Vikram@321",
+    "birth_date": "18",
+    "birth_month": "9",
+    "birth_year": "1982",
+    "firstname": "Vikram",
+    "lastname": "Mehta",
+    "company": "Mehta Solutions",
+    "mobile_number": "+91 9123454321",
+    "address1": "101 Sunset Boulevard",
+    "address2": "",
+    "country": "India",
+    "state": "Gujarat",
+    "city": "Ahmedabad",
+    "zipcode": "380001"
+  },
+  "DeleteAfterCreation" : {
+    "email": "vikram.mehta@example.com",
+    "password": "Vikram@321"
+  }
+}

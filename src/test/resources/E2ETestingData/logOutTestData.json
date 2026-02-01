@@ -1,0 +1,36 @@
+{
+  "userTestData": {
+    "username": "Neha",
+    "email": "neha.jain@example.com",
+    "password": "Neha@9090"
+  },
+  "AssertionData": {
+    "AccountDeletedPageTitle": "ACCOUNT DELETED!",
+    "LoginWarning": "Your email or password is incorrect!",
+    "LoginFormTitle": "Login to your account",
+    "LoggedInAs": "Yoyo"
+  },
+  "RegisterFirstUserData": {
+    "name": "Neha",
+    "email": "neha.jain@example.com",
+    "title": "Ms",
+    "password": "Neha@9090",
+    "birth_date": "3",
+    "birth_month": "2",
+    "birth_year": "1995",
+    "firstname": "Neha",
+    "lastname": "Jain",
+    "company": "Jain Consulting",
+    "mobile_number": "+91 9876501234",
+    "address1": "22 Ocean Drive",
+    "address2": "Suite 10",
+    "country": "India",
+    "state": "Maharashtra",
+    "city": "Mumbai",
+    "zipcode": "400001"
+  },
+  "DeleteAfterCreation" : {
+    "email": "neha.jain@example.com",
+    "password": "Neha@9090"
+  }
+}
