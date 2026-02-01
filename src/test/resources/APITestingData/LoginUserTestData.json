@@ -1,4 +1,15 @@
 {
+  "LoginWithValidData" : {
+    "email": "sara@example.com",
+    "password": "Sara@1234"
+  },
+  "LoginWithInvalidData" : {
+    "email": "sara@example.com",
+    "password": "Sara@12345"
+  },
+  "LoginWithMissingEmail" : {
+    "password": "Sara@1234"
+  },
   "RegisterFirstUserData": {
     "name": "Sara",
     "email": "sara@example.com",
@@ -18,18 +29,10 @@
     "city": "Pune",
     "zipcode": "411001"
   },
-  "LoginWithValidData" : {
+  "DeleteAfterCreation" : {
     "email": "sara@example.com",
-    "password": "Sara@1234"
-  },
-  "LoginWithInvalidData" : {
-    "email": "sara@example.com",
-    "password": "Sara@12345"
-  },
-  "LoginWithMissingEmail" : {
     "password": "Sara@1234"
   }
-
 }
 
 

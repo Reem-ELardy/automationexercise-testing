@@ -65,7 +65,7 @@ public class LoginUserAPITests {
 
     @AfterClass(description = "Delete Created user Account")
     public void tearDown() {
-        APICallsUtils.deleteRequest(APIEndpoints.DELETE_ACCOUNT, apiTestDataManager.getTestDataMap("LoginWithValidData"));
+        APICallsUtils.deleteRequest(APIEndpoints.DELETE_ACCOUNT, apiTestDataManager.getTestDataMap("DeleteAfterCreation"));
     }
 
 }
