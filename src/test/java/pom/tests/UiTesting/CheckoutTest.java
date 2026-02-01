@@ -6,7 +6,7 @@ import pom.pages.*;
 import utils.Framework.DriverFactory;
 import utils.Framework.JsonFileReader;
 import utils.Framework.TestNgListener;
-import utils.HelperFunctions.UserFunctions;
+import utils.HelperClasses.UserFunctions;
 
 @Listeners({TestNgListener.class})
 @Feature("Checkout")

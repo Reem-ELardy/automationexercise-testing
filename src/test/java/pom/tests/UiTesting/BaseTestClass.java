@@ -4,7 +4,7 @@ import org.testng.annotations.BeforeSuite;
 import pom.pages.HomePage;
 import utils.Framework.DriverFactory;
 import utils.Framework.JsonFileReader;
-import utils.HelperFunctions.UserFunctions;
+import utils.HelperClasses.UserFunctions;
 
 
 public class BaseTestClass {
