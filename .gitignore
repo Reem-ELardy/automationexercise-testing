@@ -40,3 +40,5 @@ build/
 
 ### Allure ###
 .allure
+!target/allure-report/
+!target/allure-report/index.html
