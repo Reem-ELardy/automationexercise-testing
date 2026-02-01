@@ -3,7 +3,7 @@
         <suite-file path="APITestCasesRunner.xml"/>
         <suite-file path="E2ETestCasesRunner.xml"/>
         <suite-file path="UITestCasesRunner.xml"/>
-        <suite-file path="UITestCaseswithUISetupRunner.xml"/>
+        <suite-file path="UITestCasesWithUISetupRunner.xml"/>
     </suite-files>
 </suite>
 
