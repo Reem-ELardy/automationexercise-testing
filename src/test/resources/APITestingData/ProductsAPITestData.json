@@ -1,0 +1,9 @@
+{
+  "MessageData": {
+    "FailProductsWrongRequestMethod" : "This request method is not supported.",
+    "FailSearchForMissingSearchText" : "Bad request, search_product parameter is missing in POST request."
+  },
+  "Search": {
+    "search_product" : "tshirt"
+  }
+}
