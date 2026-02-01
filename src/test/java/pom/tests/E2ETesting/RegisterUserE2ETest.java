@@ -7,6 +7,7 @@ import utils.Framework.DriverFactory;
 import utils.Framework.JsonFileReader;
 import utils.Framework.TestNgListener;
 import utils.HelperClasses.APIEndpoints;
+import utils.HelperClasses.APIFunctions;
 import utils.HelperClasses.UserFunctions;
 import pom.pages.*;
 
@@ -75,12 +76,12 @@ public class RegisterUserE2ETest {
     public void setUp() {
         DriverFactory.initiateDriver();
         testDataManager = new JsonFileReader("E2ETestingData/registerTestData.json");
-        APICallsUtils.postRequest(APIEndpoints.CREATE_ACCOUNT, testDataManager.getTestDataMap("RegisterFirstUserData"));
+        APIFunctions.createUser(testDataManager.getTestDataMap("RegisterFirstUserData"));
     }
 
     @AfterClass(description = "Close the browser after the test suite")
     public void tearDown() {
         DriverFactory.quitDriver();
-        APICallsUtils.deleteRequest(APIEndpoints.DELETE_ACCOUNT, testDataManager.getTestDataMap("DeleteAfterCreation"));
+        APIFunctions.createUser(testDataManager.getTestDataMap("RegisterFirstUserData"));
     }
 }

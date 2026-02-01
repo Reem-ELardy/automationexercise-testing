@@ -8,6 +8,7 @@ import utils.Framework.DriverFactory;
 import utils.Framework.JsonFileReader;
 import utils.Framework.TestNgListener;
 import utils.HelperClasses.APIEndpoints;
+import utils.HelperClasses.APIFunctions;
 
 @Feature("User Account Management")
 @Listeners({TestNgListener.class})
@@ -41,7 +42,7 @@ public class AccountManagementE2ETest {
     public void setUp() {
         DriverFactory.initiateDriver();
         testDataManager = new JsonFileReader("E2ETestingData/AccountManagementData.json");
-        APICallsUtils.postRequest(APIEndpoints.CREATE_ACCOUNT, testDataManager.getTestDataMap("RegisterFirstUserData"));
+        APIFunctions.createUser(testDataManager.getTestDataMap("RegisterFirstUserData"));
         new HomePage()
                 .navigateToHomePage();
     }
